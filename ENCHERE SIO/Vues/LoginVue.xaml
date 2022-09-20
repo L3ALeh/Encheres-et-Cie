@@ -14,10 +14,11 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-    
+   
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
-      
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="60"
+             BackgroundColor="#A8E2F0" >
+
             <!--Titre-->
             <Label 
             Text ="Enchère SIO"
@@ -32,17 +33,18 @@
                         WidthRequest="190"
                         HeightRequest="190"
                         Stroke="white"
-                        StrokeThickness="3"
-                        BackgroundColor="CadetBlue"
-                        StrokeShape="RoundRectangle 100">
+                        StrokeThickness="10"
+                        BackgroundColor="White"
+                        StrokeShape="RoundRectangle 90"
+                        >
 
-                <Image Source="https://pbs.twimg.com/profile_images/1367080981178568708/Je0eRnta_400x400.jpg" />
+                <Image Source="https://stocklear.fr/wp-content/uploads/2022/04/Les-encheres-en-ligne-mode-d-emploi.jpg" />
             </Border>
             <!--Image-->
             
             <!--rectangle login-->
-            <Frame BackgroundColor="#BF043055" HasShadow="False">
-                
+            <Frame BackgroundColor="#6296A3" HasShadow="True">
+
                 <StackLayout Orientation="Vertical" Spacing="10">
                     <Entry x:Name="Email" 
                            Text="{Binding Email}" 
@@ -69,14 +71,13 @@
                            IsPassword="true"
                            ClearButtonVisibility="WhileEditing"/>
                 </StackLayout>
-                
-                    <!--rectangle login -->            
+                <!--rectangle login -->            
             </Frame>
             
             <!--BUTTON-->
             <Button Command="{Binding SubmitCommand}" Text="Se connecter" TextColor="White" FontFamily="Arial"
-                    FontAttributes="None"  FontSize="Large" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#088da5" />
+                    FontAttributes="Bold"  FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#A37952" />
             <!--BUTTON-->
         </StackLayout>
     </ContentPage.Content>
