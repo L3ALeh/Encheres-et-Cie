@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ENCHERE_SIO.Vues.LoginVue"
+             Title="LoginVue">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="TitleTextStyle" TargetType="Label">
+                <Setter Property="FontSize" Value="15" />
+                <Setter Property="FontFamily" Value="Arial" />
+                <Setter Property="CharacterSpacing" Value="1.5" />
+                <Setter Property="HorizontalOptions" Value="Center" />
+                <Setter Property="VerticalOptions" Value="Center" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+      
+            <!--Titre-->
+            <Label 
+            Text ="Enchère SIO"
+            TextColor ="White"
+            Style ="{StaticResource TitleTextStyle}"
+            FontSize="20"
+            />
+            <!--Titre-->
+            
+            <!--Image-->
+            <Border
+                        WidthRequest="190"
+                        HeightRequest="190"
+                        Stroke="white"
+                        StrokeThickness="3"
+                        BackgroundColor="CadetBlue"
+                        StrokeShape="RoundRectangle 100">
+
+                <Image Source="https://pbs.twimg.com/profile_images/1367080981178568708/Je0eRnta_400x400.jpg" />
+            </Border>
+            <!--Image-->
+            
+            <!--rectangle login-->
+            <Frame BackgroundColor="#BF043055" HasShadow="False">
+                
+                <StackLayout Orientation="Vertical" Spacing="10">
+                    <Entry x:Name="Email" 
+                           Text="{Binding Email}" 
+                           Placeholder="Email"  
+                           FontFamily="Arial"  
+                           FontAttributes="Italic"
+                           TextColor="White"
+                           PlaceholderColor="White"
+                           WidthRequest="275"
+                           MaxLength="30"
+                           Keyboard="Email"
+                           ClearButtonVisibility="WhileEditing"/>
+
+                    <Entry x:Name="Password" Text="{Binding Password}" 
+                           Placeholder="Mot de passe"  
+                           FontFamily="Arial"
+                           FontAttributes="Italic"
+                           TextColor="White"
+                           PlaceholderColor="White"
+                           WidthRequest="275"
+                           MaxLength="30"
+                           IsSpellCheckEnabled="false"
+                           IsTextPredictionEnabled="false"
+                           IsPassword="true"
+                           ClearButtonVisibility="WhileEditing"/>
+                </StackLayout>
+                
+                    <!--rectangle login -->            
+            </Frame>
+            
+            <!--BUTTON-->
+            <Button Command="{Binding SubmitCommand}" Text="Se connecter" TextColor="White" FontFamily="Arial"
+                    FontAttributes="None"  FontSize="Large" HorizontalOptions="FillAndExpand"  
+                    BackgroundColor="#088da5" />
+            <!--BUTTON-->
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>  

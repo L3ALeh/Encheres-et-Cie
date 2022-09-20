@@ -1,4 +1,6 @@
-﻿namespace ENCHERE_SIO;
+﻿using ENCHERE_SIO.Vues;
+
+namespace ENCHERE_SIO;
 
 public partial class App : Application
 {
@@ -6,6 +8,6 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
-	}
+        MainPage = new LoginVue();
+    }
 }
