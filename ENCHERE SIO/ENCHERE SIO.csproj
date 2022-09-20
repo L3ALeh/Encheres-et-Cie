@@ -49,7 +49,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Modeles\" />
 	  <Folder Include="Vues\" />
 	  <Folder Include="VuesModeles\" />
 	</ItemGroup>
