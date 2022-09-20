@@ -14,15 +14,20 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-
+    
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" Padding="30" Spacing="40">
+      
+            <!--Titre-->
             <Label 
             Text ="Enchère SIO"
             TextColor ="White"
             Style ="{StaticResource TitleTextStyle}"
             FontSize="20"
             />
+            <!--Titre-->
+            
+            <!--Image-->
             <Border
                         WidthRequest="190"
                         HeightRequest="190"
@@ -33,7 +38,9 @@
 
                 <Image Source="https://pbs.twimg.com/profile_images/1367080981178568708/Je0eRnta_400x400.jpg" />
             </Border>
-
+            <!--Image-->
+            
+            <!--rectangle login-->
             <Frame BackgroundColor="#BF043055" HasShadow="False">
                 
                 <StackLayout Orientation="Vertical" Spacing="10">
@@ -62,10 +69,15 @@
                            IsPassword="true"
                            ClearButtonVisibility="WhileEditing"/>
                 </StackLayout>
+                
+                    <!--rectangle login -->            
             </Frame>
+            
+            <!--BUTTON-->
             <Button Command="{Binding SubmitCommand}" Text="Se connecter" TextColor="White" FontFamily="Arial"
                     FontAttributes="None"  FontSize="Large" HorizontalOptions="FillAndExpand"  
                     BackgroundColor="#088da5" />
+            <!--BUTTON-->
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>  
