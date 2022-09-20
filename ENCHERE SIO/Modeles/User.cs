@@ -12,6 +12,7 @@ namespace ENCHERE_SIO.Modeles
     {
         #region Attributes
         public static List<User> CollClass = new List<User>();
+        private List<Enchere> _mesEncheres;
         private int _id;
         private SecureString _password;
         private string _mail;
@@ -29,6 +30,7 @@ namespace ENCHERE_SIO.Modeles
         {
             User.CollClass.Add(this);
             _id = User.CollClass.Count() + 1;
+            _mesEncheres = new List<Enchere>();
             _mail = mail;
             _nom = nom;
             _prenom = prenom;
@@ -41,6 +43,7 @@ namespace ENCHERE_SIO.Modeles
         public string Mail { get => _mail; set => _mail = value; }
         public string Nom { get => _nom; set => _nom = value; }
         public string Prenom { get => _prenom; set => _prenom = value; }
+        public List<Enchere> MesEncheres { get => _mesEncheres; set => _mesEncheres = value; }
         #endregion
 
         #region Methods
