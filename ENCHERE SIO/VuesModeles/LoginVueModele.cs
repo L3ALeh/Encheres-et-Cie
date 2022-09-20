@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ENCHERE_SIO.VuesModeles
 {
-    public class LoginVueModele
+    public class LoginVueModele:BaseVueModele
     {
     }
 }
