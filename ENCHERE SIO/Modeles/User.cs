@@ -5,13 +5,15 @@ using System.Security;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using SQLite;
+using SQLiteNetExtensions.Attributes;
 
 namespace ENCHERE_SIO.Modeles
 {
+    [Table("User")]
     public sealed class User
     {
         #region Attributes
-        public static List<User> CollClass = new List<User>();
         private List<Enchere> _mesEncheres;
         private int _id;
         private SecureString _password;
@@ -21,32 +23,43 @@ namespace ENCHERE_SIO.Modeles
         #endregion
 
         #region Constructor
-        public User(string mail, string nom, string prenom, string password)
-            : this(mail, nom, prenom, ConvertPasswordToSecureString(password))
-        {
+        //public User(string mail, string nom, string prenom, string password)
+        //    : this(mail, nom, prenom, ConvertPasswordToSecureString(password))
+        //{
 
-        }
-        public User(string mail, string nom, string prenom, SecureString password)
-        {
-            User.CollClass.Add(this);
-            _id = User.CollClass.Count() + 1;
-            _mesEncheres = new List<Enchere>();
-            _mail = mail;
-            _nom = nom;
-            _prenom = prenom;
-            _password = password;
-        }
+        //}
+        //public User(string mail, string nom, string prenom, SecureString password)
+        //{
+        //    _mesEncheres = new List<Enchere>();
+        //    _mail = mail;
+        //    _nom = nom;
+        //    _prenom = prenom;
+        //    _password = password;
+        //}
         #endregion
 
         #region Getters/Setters
+        [PrimaryKey,AutoIncrement]
         public int Id { get { return _id; } }   
         public string Mail { get => _mail; set => _mail = value; }
         public string Nom { get => _nom; set => _nom = value; }
         public string Prenom { get => _prenom; set => _prenom = value; }
+        [ManyToMany(typeof(Participer))]
         public List<Enchere> MesEncheres { get => _mesEncheres; set => _mesEncheres = value; }
         #endregion
 
         #region Methods
+        public User AjoutUser(string leMail, string leNom, string lePrenom, string mdp, SecureString password)
+        {
+            ConvertPasswordToSecureString(mdp);
+            this._id = 0;
+            this._mail = leMail;
+            this._nom = leNom;
+            this._prenom = lePrenom;
+            this._mesEncheres = new List<Enchere>();
+            this._password = password;
+            return this;
+        }
         /// <summary>
         /// Ne laisse pas le mdp sous forme de texte brut
         /// </summary>
