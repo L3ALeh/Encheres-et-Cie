@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,31 +8,31 @@ using System.Threading.Tasks;
 
 namespace ENCHERE_SIO.Modeles
 {
-    public class Enchere
+    [Table("Enchere")]
+    public abstract class Enchere
     {
         #region Attribut
-        public static List<Enchere> CollClasse = new List<Enchere>();
         private int _id;
         private double _prixDeDepart;
         private DateTime _dateDebut;
         private DateTime _dateFin;
         private double _prixActuel;
         private double _prixReserve;
-        private char _Etat;
+        private char _etat;
+        private Article _unArticle;
+        private List<User> _lesUsers;
         #endregion
 
         #region Constructeur
-        public Enchere(double prixDeDepart, DateTime dateFin, double prixActuel, double prixReserve, char etat, DateTime dateDebut)
-        {
-            CollClasse.Add(this);
-            _prixDeDepart = prixDeDepart;
-            _dateFin = dateFin;
-            _prixActuel = prixActuel;
-            _prixReserve = prixReserve;
-            _Etat = etat;
-            _dateDebut = dateDebut;
-            _id = CollClasse.Count() + 1;
-        }
+        //public Enchere(double prixDeDepart, DateTime dateFin, double prixActuel, double prixReserve, char etat, DateTime dateDebut)
+        //{
+        //    _prixDeDepart = prixDeDepart;
+        //    _dateFin = dateFin;
+        //    _prixActuel = prixActuel;
+        //    _prixReserve = prixReserve;
+        //    _etat = etat;
+        //    _dateDebut = dateDebut;
+        //}
 
 
         #endregion
@@ -41,11 +43,35 @@ namespace ENCHERE_SIO.Modeles
         public DateTime DateFin { get => _dateFin; set => _dateFin = value; }
         public double PrixActuel { get => _prixActuel; set => _prixActuel = value; }
         public double PrixReserve { get => _prixReserve; set => _prixReserve = value; }
-        public char Etat { get => _Etat; set => _Etat = value; }
+        public char Etat { get => _etat; set => _etat = value; }
+
+        [PrimaryKey, AutoIncrement]
         public int Id { get => _id; set => _id = value; }
+
+        [ForeignKey(typeof(Article))]
+        public int IdArticle { get; set; }
+
+        [OneToOne(nameof(IdArticle))]
+        public Article UnArticle { get => _unArticle; set => _unArticle = value; }
+
+        [ManyToMany(typeof(Participer))]
+        public List<User> LesUsers { get => _lesUsers; set => _lesUsers = value; }
         #endregion
 
         #region Methode
+        public virtual Enchere AjoutEnchere(double prixActu, double prixRes, char etat, DateTime dateDeb, DateTime dateFin, double prixDep)
+        {
+            this._id = 0;
+            this._prixActuel=prixActu;
+            this._prixReserve = prixRes;
+            this._etat=etat;
+            this._dateDebut=dateDeb;
+            this._dateFin=dateFin;
+            this._prixDeDepart=prixDep;
+            this._lesUsers=new List<User>();
+
+            return this;
+        }
         #endregion
 
 

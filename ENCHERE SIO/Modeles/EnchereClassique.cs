@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,30 +7,33 @@ using System.Threading.Tasks;
 
 namespace ENCHERE_SIO.Modeles
 {
+    [Table("EnchereClassique")]
     public class EnchereClassique : Enchere
     {
         #region Attribut
         private double _montant;
-        private List<EnchereClassique> _ListDernieresEnchere;
-        public static List<EnchereClassique> CollClasse = new List<EnchereClassique>();
+        #endregion
+
+        #region constructeur
+        //public EnchereClassique(double prixDeDepart, DateTime dateFin, double prixActuel, double prixReserve, char etat, DateTime dateDebut) :
+        //    base(prixDeDepart, dateFin, prixActuel, prixReserve, etat, dateDebut)
+        //{
+        //    _ListDernieresEnchere = new List<EnchereClassique>();
+        //    _montant = 0;
+        //}
         #endregion
 
         #region getter/setter
         public double Montant { get => _montant; set => _montant = value; }
-        public List<EnchereClassique> ListDernieresEnchere { get => _ListDernieresEnchere; set => _ListDernieresEnchere = value; }
-        #endregion
-
-        #region constructeur
-        public EnchereClassique(double prixDeDepart, DateTime dateFin, double prixActuel, double prixReserve, char etat, DateTime dateDebut) :
-            base(prixDeDepart, dateFin, prixActuel, prixReserve, etat, dateDebut)
-        {
-            CollClasse.Add(this);
-            _ListDernieresEnchere = new List<EnchereClassique>();
-            _montant = 0;
-        }
         #endregion
 
         #region methodes
+        public EnchereClassique AjoutEnchereClassique(double prixActu, double prixRes, char etat, DateTime dateDeb, DateTime dateFin, double prixDep, double leMontant)
+        {
+            base.AjoutEnchere(prixActu, prixRes, etat, dateDeb, dateFin, prixDep);
+            this._montant= leMontant;
+            return this;
+        }
         #endregion
     }
 }
