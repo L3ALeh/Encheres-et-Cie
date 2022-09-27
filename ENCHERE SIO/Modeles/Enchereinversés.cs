@@ -17,7 +17,6 @@ namespace ENCHERE_SIO.Modeles
             base(prixDeDepart, dateFin, prixActuel, prixReserve, etat, dateDebut)
         {
             CollClasse.Add(this);
-
         }
         #endregion
 

@@ -11,6 +11,7 @@ namespace ENCHERE_SIO.Modeles
         #region Attribut
         private double _montant;
         private List<EnchereClassique> _ListDernieresEnchere;
+        public static List<EnchereClassique> CollClasse = new List<EnchereClassique>();
         #endregion
 
         #region getter/setter
@@ -22,6 +23,7 @@ namespace ENCHERE_SIO.Modeles
         public EnchereClassique(double prixDeDepart, DateTime dateFin, double prixActuel, double prixReserve, char etat, DateTime dateDebut) :
             base(prixDeDepart, dateFin, prixActuel, prixReserve, etat, dateDebut)
         {
+            CollClasse.Add(this);
             _ListDernieresEnchere = new List<EnchereClassique>();
             _montant = 0;
         }
