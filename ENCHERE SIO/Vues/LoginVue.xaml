@@ -2,7 +2,11 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ENCHERE_SIO.Vues.LoginVue"
-             Title="LoginVue">
+             NavigationPage.HasNavigationBar="false"
+                 BackgroundColor="{AppThemeBinding 
+                    Dark={StaticResource WindowBackgroundColorDark}, 
+                    Light={StaticResource WindowBackgroundColor}}"
+             >
     <ContentPage.Resources>
         <ResourceDictionary>
             <Style x:Key="TitleTextStyle" TargetType="Label">
@@ -24,7 +28,7 @@
             Text ="Enchère SIO"
             TextColor ="White"
             Style ="{StaticResource TitleTextStyle}"
-            FontSize="20"
+            FontSize="25"
             />
             <!--Titre-->
             
@@ -33,23 +37,23 @@
                         WidthRequest="190"
                         HeightRequest="190"
                         Stroke="white"
-                        StrokeThickness="10"
-                        BackgroundColor="White"
+                        StrokeThickness="5"
+                        BackgroundColor="Transparent"
                         StrokeShape="RoundRectangle 90"
                         >
 
-                <Image Source="https://stocklear.fr/wp-content/uploads/2022/04/Les-encheres-en-ligne-mode-d-emploi.jpg" />
+                <Image Source="https://static.yoopies.com/bundles/yoopiescore/img/profile-v4/user_d_photo.png" 
+                       WidthRequest="200"/>
             </Border>
             <!--Image-->
             
             <!--rectangle login-->
-            <Frame BackgroundColor="#6296A3" HasShadow="True">
+            <Frame BackgroundColor="#6296A3" HasShadow="False" HorizontalOptions="CenterAndExpand" WidthRequest="360">
 
                 <StackLayout Orientation="Vertical" Spacing="10">
                     <Entry x:Name="Email" 
                            Text="{Binding Email}" 
                            Placeholder="Email"  
-                           FontFamily="Arial"  
                            FontAttributes="Italic"
                            TextColor="White"
                            PlaceholderColor="White"
@@ -60,7 +64,6 @@
 
                     <Entry x:Name="Password" Text="{Binding Password}" 
                            Placeholder="Mot de passe"  
-                           FontFamily="Arial"
                            FontAttributes="Italic"
                            TextColor="White"
                            PlaceholderColor="White"
@@ -75,9 +78,27 @@
             </Frame>
             
             <!--BUTTON-->
-            <Button Command="{Binding SubmitCommand}" Text="Se connecter" TextColor="White" FontFamily="Arial"
-                    FontAttributes="Bold"  FontSize="Large" HorizontalOptions="FillAndExpand"  
-                    BackgroundColor="#A37952" />
+            <Button Command="{Binding SubmitCommand}" 
+                    Text="Se connecter" 
+                    TextColor="White" 
+                    FontAttributes="Bold"  
+                    FontSize="Large" 
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="255"
+                    CornerRadius="30"
+                    BackgroundColor="#A37952"
+                    />
+            
+            <Button 
+                            Padding="10"
+                            x:Name="SansConnexion"
+                            Text="Connexion en tant que visiteur"
+                            BackgroundColor="LightGray"
+                            TextColor="Brown"
+                            WidthRequest="225"
+                            CornerRadius="30"
+                            Clicked="Visiteur_Clicked"/>
+
             <!--BUTTON-->
         </StackLayout>
     </ContentPage.Content>

@@ -9,4 +9,9 @@ public partial class LoginVue : ContentPage
 		InitializeComponent();
 		BindingContext =vueModele= new LoginVueModele();
 	}
+
+    private void Visiteur_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new AccueilVue(), true);
+    }
 }
