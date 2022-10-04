@@ -1,4 +1,6 @@
-﻿using System;
+﻿using SQLite;
+using SQLiteNetExtensions.Attributes;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,25 +8,24 @@ using System.Threading.Tasks;
 
 namespace ENCHERE_SIO.Modeles
 {
+    [Table("Magasin")]
     public class Magasin
     {
         #region Attribut
-        public static List<Magasin> CollClasse = new List<Magasin>();
         private double _lattitude;
         private double _longitude;
         private string _nomMagasin;
         private int _id;
+        private List<Article> _lesArticles;
         #endregion
 
         #region Constructeur
-        public Magasin(double lattitude, double longitude, string nomMagasin)
-        {
-            CollClasse.Add(this);
-            _lattitude = lattitude;
-            _longitude = longitude;
-            _nomMagasin = nomMagasin;
-            _id = CollClasse.Count()+1;    
-        }
+        //public Magasin(double lattitude, double longitude, string nomMagasin)
+        //{
+        //    _lattitude = lattitude;
+        //    _longitude = longitude;
+        //    _nomMagasin = nomMagasin;   
+        //}
 
         #endregion
 
@@ -32,11 +33,25 @@ namespace ENCHERE_SIO.Modeles
         public double Lattitude { get => _lattitude; set => _lattitude = value; }
         public double Longitude { get => _longitude; set => _longitude = value; }
         public string NomMagasin { get => _nomMagasin; set => _nomMagasin = value; }
+        [PrimaryKey, AutoIncrement]
         public int Id { get => _id; }
+        [ForeignKey(typeof(Article))]
+        public int IdArticle { get; set; }
 
+        [OneToMany(nameof(IdArticle))]
+        public List<Article> LesArticles { get => _lesArticles; set => _lesArticles = value; }
         #endregion
 
         #region Methode
+        public Magasin AjoutMagasin(double latt, double longi, string magasin)
+        {
+            this._lattitude = latt;
+            this._longitude = longi;
+            this._nomMagasin = magasin;
+            this._id = 0;
+            this.LesArticles= new List<Article>();
+            return this;
+        }
         #endregion
 
 
