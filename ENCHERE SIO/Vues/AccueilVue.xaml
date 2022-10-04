@@ -10,7 +10,9 @@ Text="" Clicked="Search_Clicked"/>
     
     <VerticalStackLayout>
         <Label 
-            Text="Welcome to .NET MAUI!"
+            Text="Bienvenue à la page d'accueil des enchères"
+            FontSize="Title"
+            TextColor="Purple"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
     </VerticalStackLayout>
