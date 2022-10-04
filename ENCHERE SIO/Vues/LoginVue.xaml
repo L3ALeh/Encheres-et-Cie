@@ -3,9 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ENCHERE_SIO.Vues.LoginVue"
              NavigationPage.HasNavigationBar="false"
-                 BackgroundColor="{AppThemeBinding 
-                    Dark={StaticResource WindowBackgroundColorDark}, 
-                    Light={StaticResource WindowBackgroundColor}}"
+             BackgroundImageSource="https://images.liveauctioneers.com/previews/prod/306/35257.jpg"
+
              >
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -21,7 +20,7 @@
    
     <ContentPage.Content>
         <StackLayout Orientation="Vertical" Padding="30" Spacing="60"
-             BackgroundColor="#A8E2F0" >
+             >
 
             <!--Titre-->
             <Label 

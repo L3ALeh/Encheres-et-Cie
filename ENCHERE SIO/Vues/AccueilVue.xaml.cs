@@ -10,6 +10,17 @@ public partial class AccueilVue : ContentPage
 	{
 		InitializeComponent();
         BindingContext = vueModele = new AccueilVueModele();
-
+    }
+    private void EnchereClass_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new EnchereClassiqueVue(), true);
+    }
+    private void EnchereInversee_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new EnchereInverseeVue(), true);
+    }
+    private void EnchereFlash_Clicked(object sender, EventArgs e)
+    {
+        Navigation.PushAsync(new EnchereFlashVue(), true);
     }
 }
