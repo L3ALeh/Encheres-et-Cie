@@ -14,8 +14,8 @@ namespace ENCHERE_SIO.VuesModeles
         #region Attribut
         private readonly Api _apiServices = new Api();
 
-        private ObservableCollection<EnchereClassique> _maListeEncheresEnCoursTypeClassique;
-        private EnchereClassique _maEnchere;
+        private ObservableCollection<Enchere> _maListeEncheresEnCours;
+        private Enchere _maEnchere;
 
         #endregion
 
@@ -27,13 +27,13 @@ namespace ENCHERE_SIO.VuesModeles
         #endregion
 
         #region Getter/setter
-        public ObservableCollection<EnchereClassique> MaListeEncheresEnCoursTypeClassique
+        public ObservableCollection<Enchere> MaListeEncheresEnCoursTypeClassique
         {
-            get { return _maListeEncheresEnCoursTypeClassique; }
-            set { SetProperty(ref _maListeEncheresEnCoursTypeClassique, value); }
+            get { return _maListeEncheresEnCours; }
+            set { SetProperty(ref _maListeEncheresEnCours, value); }
         }
 
-        public EnchereClassique MaEnchere
+        public Enchere MaEnchere
         {
             get { return _maEnchere; }
             set { SetProperty(ref _maEnchere, value); }
@@ -41,19 +41,19 @@ namespace ENCHERE_SIO.VuesModeles
         #endregion
 
         #region Methode
-        public async void GetListeEnCheresEnCoursTypeClassique()
+        public async void GetListeEnCheresEnCours(int id)
         {
-            MaListeEncheresEnCoursTypeClassique = await _apiServices.GetAllAsync<EnchereClassique>
-                ("api/getEncheresEnCours", EnchereClassique.CollClasse);
-            EnchereClassique.CollClasse.Clear();
+            MaListeEncheresEnCoursTypeClassique = await _apiServices.GetAllAsyncID<Enchere>
+                ("api/getEncheresEnCours", Enchere.CollClasse, "IdTypeEnchere", id);
+            Enchere.CollClasse.Clear();
 
         }
 
         public async void GetEnchereTest(string param)
         {
-            MaEnchere = await _apiServices.GetOneAsyncID<EnchereClassique>
+            MaEnchere = await _apiServices.GetOneAsyncID<Enchere>
                 ("api/getEnchereTest", param);
-            EnchereClassique.CollClasse.Clear();
+            Enchere.CollClasse.Clear();
 
         }
         #endregion
