@@ -14,7 +14,7 @@ namespace ENCHERE_SIO.Modeles
     public sealed class User
     {
         #region Attributes
-        private List<Enchere> _mesEncheres;
+        
         private int _id;
         private SecureString _password;
         private string _mail;
@@ -45,7 +45,11 @@ namespace ENCHERE_SIO.Modeles
         public string Nom { get => _nom; set => _nom = value; }
         public string Prenom { get => _prenom; set => _prenom = value; }
         [ManyToMany(typeof(Participer))]
-        public List<Enchere> MesEncheres { get => _mesEncheres; set => _mesEncheres = value; }
+        
+
+
+        [OneToMany]
+        public List<Participer> lesParticipations { get; set; }
         #endregion
 
         #region Methods
@@ -56,7 +60,7 @@ namespace ENCHERE_SIO.Modeles
             this._mail = leMail;
             this._nom = leNom;
             this._prenom = lePrenom;
-            this._mesEncheres = new List<Enchere>();
+            //this._mesEncheres = new List<Enchere>();
             this._password = password;
             return this;
         }

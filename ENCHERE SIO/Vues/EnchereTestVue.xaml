@@ -13,7 +13,7 @@
 
         <Label 
             TextColor="Black"
-            Text="{Binding MaEnchere.PrixActuel}"
+            Text="{Binding MaEnchere.Id}"
             VerticalOptions="Center"
             HorizontalOptions="Center"/>
 

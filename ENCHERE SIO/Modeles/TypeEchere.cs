@@ -1,5 +1,4 @@
 ﻿using SQLite;
-using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,19 +7,20 @@ using System.Threading.Tasks;
 
 namespace ENCHERE_SIO.Modeles
 {
-    [Table("CaseSurprise")]
-    public class CaseSurprise
+    [Table("TpeEnchere")]
+    public class TypeEnchere
     {
+
         #region Attribut
         private int _id;
-        private double _valeur;
+        private string nomType;
         #endregion
 
         #region Constructeur
-        //public CaseSurprise(double valeur)
-        //{
-        //    _valeur = valeur;
-        //}
+        public TypeEnchere()
+        {
+            
+        }
 
 
         #endregion
@@ -28,9 +28,7 @@ namespace ENCHERE_SIO.Modeles
         #region Getter/setter
         [PrimaryKey, AutoIncrement]
         public int Id { get => _id; set => _id = value; }
-        public double Valeur { get => _valeur; set => _valeur = value; }
-        [ForeignKey(typeof(Enchere))]
-        public int EnchereSurpriseId { get; set; }
+        public string NomType { get => nomType; set => nomType = value; }
         #endregion
 
         #region Methode
