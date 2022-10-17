@@ -7,8 +7,8 @@ public partial class EnchereFlashVue : ContentPage
     EnchereFlashVueModele vueModele;
 
     public EnchereFlashVue()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
         BindingContext = vueModele = new EnchereFlashVueModele();
 
     }

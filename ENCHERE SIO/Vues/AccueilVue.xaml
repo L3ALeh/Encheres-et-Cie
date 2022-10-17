@@ -3,12 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ENCHERE_SIO.Vues.AccueilVue"
              >
-
-        <ContentPage.Content>
+    <ContentPage.Content>
         <StackLayout Orientation="Vertical" Padding="20" Spacing="30"
              BackgroundColor="#A8E2F0" >
-      
-            
+
             <Label 
             Text="Bienvenue à la page d'accueil des enchères"
             FontSize="16"
@@ -16,7 +14,7 @@
             HeightRequest="25"
             TextColor="Purple"
             VerticalOptions="Center" 
-            HorizontalOptions="Center"
+              HorizontalOptions="Center"
             />
             <Label
                 Text="Veuillez choisir un type d'enchère :"
