@@ -1,11 +1,11 @@
-<<<<<<< HEAD
+
 ﻿using ENCHERE_SIO.Modeles;
 using ENCHERE_SIO.services;
 using ENCHERE_SIO.Vues;
 using System;
-=======
+
 ﻿using System;
->>>>>>> parent of 1650b05 (....)
+
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,7 +15,7 @@ namespace ENCHERE_SIO.VuesModeles
 {
     public class LoginVueModele:BaseVueModele
     {
-<<<<<<< HEAD
+
         #region Attributes
         private readonly Api _apiServices = new Api();
 
@@ -48,7 +48,6 @@ namespace ENCHERE_SIO.VuesModeles
             }
         }
         #endregion
-=======
->>>>>>> parent of 1650b05 (....)
+
     }
 }
