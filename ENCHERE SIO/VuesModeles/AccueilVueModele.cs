@@ -43,7 +43,7 @@ namespace ENCHERE_SIO.VuesModeles
         public async void GetEncheresEnCours()
         {
             MesEncheres = await _apiServices.GetAllAsync<Enchere>
-                ("api/GetEncheresEnCours", Enchere.CollClasse);
+                ("api/getEncheresEnCours", Enchere.CollClasse);
             Enchere.CollClasse.Clear();
         }
         #endregion

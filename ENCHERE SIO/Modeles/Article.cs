@@ -12,30 +12,28 @@ namespace ENCHERE_SIO.Modeles
     public class Article
     {
         #region Attribut
-        private double _montant;
+        private double _prixReel;
         private string _nom;
-        private string _photoURL;
+        private string _photo;
         private int _id;
-        private Enchere _uneEnchere;
-        private Magasin _unMagasin;
         #endregion
 
         #region Constructeur
-        //public Article(double montant, string nom, string photoURL)
-        //{
-        //    _montant = montant;
-        //    _nom = nom;
-        //    _photoURL = photoURL;
-        //}
+        public Article(double montant, string nom, string photoURL)
+        {
+            this._prixReel = montant;
+            this._nom = nom;
+            this._photo = photoURL;
+        }
         #endregion
 
         #region Getter/setter
-        public double Montant { get => _montant; set => _montant = value; }
+        public double PrixReel { get => _prixReel; set => _prixReel = value; }
         public string Nom { get => _nom; set => _nom = value; }
-        public string PhotoURL { get => _photoURL; set => _photoURL = value; }
+        public string Photo { get => _photo; set => _photo = value; }
 
         [PrimaryKey, AutoIncrement]
-        public int Id { get => _id; }
+        public int Id { get => _id; set => _id = value; }
 
         [ForeignKey(typeof(Enchere))]
         public int IdEnchere { get; set; }
@@ -43,21 +41,15 @@ namespace ENCHERE_SIO.Modeles
         [ForeignKey(typeof(Magasin))]
         public int IdMagasin { get; set; }
 
-        [OneToOne(nameof(IdEnchere))]
-        public Enchere UneEnchere { get => _uneEnchere; set => _uneEnchere = value; }
-
-        [ManyToOne(nameof(IdMagasin))]
-        public Magasin UnMagasin { get => _unMagasin; set => _unMagasin = value; }
         #endregion
 
         #region Methode
-        public Article AjoutArticle(double leMontant, string leNom, string url, Magasin magasin)
+        public Article AjoutArticle(double leMontant, string leNom, string url)
         {
-            this._montant = leMontant;
-            this._id = 0;
+            this._prixReel = leMontant;
             this._nom = leNom;
-            this._photoURL = url;
-            this._unMagasin = magasin;
+            this._photo = url;
+
             return this;
         }
         #endregion
