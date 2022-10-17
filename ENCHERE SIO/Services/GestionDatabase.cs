@@ -34,30 +34,50 @@ namespace ENCHERE_SIO.Services
             if (!initialized)
             {
 
+                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Article).Name))
+                {
+
+                    await Database.CreateTablesAsync(CreateFlags.None, typeof(Article)).ConfigureAwait(false);
+
+                }
+                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(CaseSurprise).Name))
+                {
+
+                    await Database.CreateTablesAsync(CreateFlags.None, typeof(CaseSurprise)).ConfigureAwait(false);
+
+                }
+                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Enchere).Name))
+                {
+
+                    await Database.CreateTablesAsync(CreateFlags.None, typeof(Enchere)).ConfigureAwait(false);
+
+                }
+                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Enchere).Name))
+                {
+
+                    await Database.CreateTablesAsync(CreateFlags.None, typeof(Enchere)).ConfigureAwait(false);
+
+                }
+       
                 if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Magasin).Name))
                 {
 
                     await Database.CreateTablesAsync(CreateFlags.None, typeof(Magasin)).ConfigureAwait(false);
 
                 }
-                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Vendre).Name))
+                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Participer).Name))
                 {
 
-                    await Database.CreateTablesAsync(CreateFlags.None, typeof(Vendre)).ConfigureAwait(false);
+                    await Database.CreateTablesAsync(CreateFlags.None, typeof(Participer)).ConfigureAwait(false);
 
                 }
-                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Pays).Name))
+                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(User).Name))
                 {
 
-                    await Database.CreateTablesAsync(CreateFlags.None, typeof(Pays)).ConfigureAwait(false);
+                    await Database.CreateTablesAsync(CreateFlags.None, typeof(User)).ConfigureAwait(false);
 
                 }
-                if (!Database.TableMappings.Any(m => m.MappedType.Name == typeof(Ville).Name))
-                {
 
-                    await Database.CreateTablesAsync(CreateFlags.None, typeof(Ville)).ConfigureAwait(false);
-
-                }
 
 
 

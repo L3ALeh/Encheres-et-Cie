@@ -1,5 +1,6 @@
 ﻿using ENCHERE_SIO.Modeles;
 using ENCHERE_SIO.services;
+using ENCHERE_SIO.Vues;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -13,35 +14,34 @@ namespace ENCHERE_SIO.VuesModeles
     {
         #region Attributes
         private readonly Api _apiServices = new Api();
-        private ObservableCollection<User> _maListeUser;
-        private User _monUser;
+
+        private User _unUser;
         #endregion
 
         #region Constructor
         public LoginVueModele()
         {
-            
+            this.GetUserByMailAndPass();
         }
         #endregion
 
         #region Getters/Setters
-        public ObservableCollection<User> MaListeUser
-        {
-            get { return _maListeUser; }
-            set { SetProperty(ref _maListeUser, value); }
-        }
-        public User MonUser
-        {
-            get { return _monUser; }
-            set { SetProperty(ref _monUser, value); }
+        public User UnUser 
+        { 
+            get { return _unUser; }
+            set { SetProperty(ref _unUser, value); } 
         }
         #endregion
 
         #region Methods
-        public async void getUsername()
+        public async void GetUserByMailAndPass()
         {
-            User u1 = new User();
-            MonUser = await _apiServices.GetOneAsync<User>("api/GetUserByMailAndPass", u1);
+            UnUser = new User(0,"", "");
+            await _apiServices.GetOneAsync<User>("api/getUserByMailAndPass",UnUser);
+            if(UnUser != null)
+            {
+                Application.Current.MainPage = new AccueilVue();
+            }
         }
         #endregion
     }
