@@ -1,13 +1,15 @@
-//using ENCHERE_SIO.VuesModeles;
+using ENCHERE_SIO.VuesModeles;
 
-//namespace ENCHERE_SIO.Vues;
+namespace ENCHERE_SIO.Vues;
 
-//public partial class EnchereTestVue : ContentPage
-//{
-//	EnchereTestVueModele _vueModele;
-//	public EnchereTestVue()
-//	{
-//		InitializeComponent();
-//		BindingContext = _vueModele = new EnchereTestVueModele();
-//	}
-//}
+using ENCHERE_SIO.VuesModeles;
+
+public partial class EnchereTestVue : ContentPage
+{
+	EnchereTestVueModele _vueModele;
+	public EnchereTestVue()
+	{
+		InitializeComponent();
+		BindingContext = _vueModele = new EnchereTestVueModele();
+	}
+}

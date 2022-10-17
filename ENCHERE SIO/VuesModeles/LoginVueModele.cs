@@ -1,7 +1,11 @@
+
 ﻿using ENCHERE_SIO.Modeles;
 using ENCHERE_SIO.services;
 using ENCHERE_SIO.Vues;
 using System;
+
+﻿using System;
+
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -12,6 +16,7 @@ namespace ENCHERE_SIO.VuesModeles
 {
     public class LoginVueModele:BaseVueModele
     {
+
         #region Attributes
         private readonly Api _apiServices = new Api();
 
@@ -44,5 +49,6 @@ namespace ENCHERE_SIO.VuesModeles
             }
         }
         #endregion
+
     }
 }

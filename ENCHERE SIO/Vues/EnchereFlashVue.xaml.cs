@@ -1,15 +1,15 @@
-using ENCHERE_SIO.VuesModeles;
+//using ENCHERE_SIO.VuesModeles;
 
-namespace ENCHERE_SIO.Vues;
+//namespace ENCHERE_SIO.Vues;
 
-public partial class EnchereFlashVue : ContentPage
-{
-    EnchereFlashVueModele vueModele;
+//public partial class EnchereFlashVue : ContentPage
+//{
+//    EnchereFlashVueModele vueModele;
 
-    public EnchereFlashVue()
-	{
-		InitializeComponent();
-        BindingContext = vueModele = new EnchereFlashVueModele();
+//    public EnchereFlashVue()
+//	{
+//		InitializeComponent();
+//        BindingContext = vueModele = new EnchereFlashVueModele();
 
-    }
-}
+//    }
+//}
