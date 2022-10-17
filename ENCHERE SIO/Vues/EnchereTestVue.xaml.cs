@@ -1,6 +1,6 @@
-using ENCHERE_SIO.VuesModeles;
+//using ENCHERE_SIO.VuesModeles;
 
-namespace ENCHERE_SIO.Vues;
+//namespace ENCHERE_SIO.Vues;
 
 public partial class EnchereTestVue : ContentPage
 {

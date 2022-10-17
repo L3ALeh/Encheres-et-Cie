@@ -11,9 +11,72 @@ Text="" Clicked="Search_Clicked"/>
     <VerticalStackLayout>
         <Label 
             Text="Bienvenue à la page d'accueil des enchères"
-            FontSize="Title"
+            FontSize="16"
+            FontAttributes="Bold"
+            HeightRequest="25"
             TextColor="Purple"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+            HorizontalOptions="Center"
+            />
+            <Label
+                Text="Veuillez choisir un type d'enchère :"
+                FontSize="15"
+                TextColor="Purple"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"
+                />
+            <!--Btn enchere classique -->
+            <Button
+                    Text="Enchères classiques" 
+                    TextColor="White" 
+                    FontSize="Medium" 
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="390"
+                    CornerRadius="30"
+                    BackgroundColor="MediumPurple"
+                    Clicked="EnchereClass_Clicked"
+                    />
+            <!-- FIN btn -->
+            <!--Btn enchere inversées -->
+            <Button 
+                    Text="Enchères inversées" 
+                    TextColor="White" 
+                    FontSize="Medium" 
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="390"
+                    CornerRadius="30"
+                    BackgroundColor="MediumPurple"
+                    Clicked="EnchereInversee_Clicked"
+                    />
+            <!-- FIN btn -->
+            <!--Btn enchere flash -->
+            <Button
+                    Text="Enchères flashs" 
+                    TextColor="White" 
+                    FontSize="Medium" 
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="390"
+                    CornerRadius="30"
+                    BackgroundColor="MediumPurple"
+                    Clicked="EnchereFlash_Clicked"
+                    />
+            <!-- FIN btn -->
+            <Label
+                Text="Rechercher par endroit :"
+                TextColor="White"
+               HorizontalOptions="Center"
+                VerticalOptions="Center"
+                />
+            <Button 
+                    Text="Carte" 
+                    TextColor="White" 
+                    FontSize="Medium" 
+                    HorizontalOptions="CenterAndExpand"
+                    WidthRequest="250"
+                    CornerRadius="30"
+                    BackgroundColor="DarkSeaGreen"
+                    />
+
+        </StackLayout>
+    </ContentPage.Content>
 </ContentPage>
