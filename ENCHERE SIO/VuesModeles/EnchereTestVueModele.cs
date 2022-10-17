@@ -1,23 +1,23 @@
-﻿//using ENCHERE_SIO.Modeles;
-//using ENCHERE_SIO.services;
-//using System;
-//using System.Collections.Generic;
-//using System.Collections.ObjectModel;
-//using System.Linq;
-//using System.Text;
-//using System.Threading.Tasks;
+﻿using ENCHERE_SIO.Modeles;
+using ENCHERE_SIO.services;
+using System;
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-//namespace ENCHERE_SIO.VuesModeles
-//{
-    //public class EnchereTestVueModele : BaseVueModele
-    //{
-    //    #region Attribut
-    //    private readonly Api _apiServices = new Api();
+namespace ENCHERE_SIO.VuesModeles
+{
+    public class EnchereTestVueModele : BaseVueModele
+    {
+        #region Attribut
+        private readonly Api _apiServices = new Api();
 
-    //    private ObservableCollection<EnchereClassique> _maListeEncheresEnCoursTypeClassique;
-    //    private EnchereClassique _maEnchere;
+        private ObservableCollection<Enchere> _maListeEncheresEnCoursTypeClassique;
+        private Enchere _maEnchere;
 
-    //    #endregion
+        #endregion
 
         #region Constructeur
         public EnchereTestVueModele()
@@ -26,19 +26,19 @@
         }
         #endregion
 
-    //    #region Getter/setter
-    //    public ObservableCollection<EnchereClassique> MaListeEncheresEnCoursTypeClassique
-    //    {
-    //        get { return _maListeEncheresEnCoursTypeClassique; }
-    //        set { SetProperty(ref _maListeEncheresEnCoursTypeClassique, value); }
-    //    }
+        #region Getter/setter
+        public ObservableCollection<Enchere> MaListeEncheresEnCoursTypeClassique
+        {
+            get { return _maListeEncheresEnCoursTypeClassique; }
+            set { SetProperty(ref _maListeEncheresEnCoursTypeClassique, value); }
+        }
 
-    //    public EnchereClassique MaEnchere
-    //    {
-    //        get { return _maEnchere; }
-    //        set { SetProperty(ref _maEnchere, value); }
-    //    }
-    //    #endregion
+        public Enchere MaEnchere
+        {
+            get { return _maEnchere; }
+            set { SetProperty(ref _maEnchere, value); }
+        }
+        #endregion
 
         #region Methode
         public async void GetListeEnCheresEnCours(int id)
@@ -56,8 +56,10 @@
             Enchere.CollClasse.Clear();
 
         }
+
+
         #endregion
 
 
-//    }
-//}
+    }
+}
