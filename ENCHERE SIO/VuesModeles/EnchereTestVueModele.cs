@@ -23,6 +23,9 @@ namespace ENCHERE_SIO.VuesModeles
         public EnchereTestVueModele()
         {
             this.GetEnchereTest("19");
+            //appel de thread pour les 6 dernieres encheres
+            //appel de thread pour rafrechir l'api
+            LanceThread();
         }
         #endregion
 
@@ -56,6 +59,40 @@ namespace ENCHERE_SIO.VuesModeles
             Enchere.CollClasse.Clear();
 
         }
+
+        //thread de rafraichisement de l'api et des 6 derniers
+
+        public void LanceThread()
+        {
+            Task.Run(() =>
+            {
+
+                while (true)
+                {
+                    this.GetEnchereTest("19");
+                    this.GetListeEnCheresEnCours(1);
+                    Thread.Sleep(5);
+                }
+            });
+        }
+
+        //changer seulement le prix actuel
+        public async void PostMiseTest(double mise, string param, int id )
+        {
+
+        }
+
+        public async void miser(double montant)
+        {
+            if (montant > 0)
+            {
+                Participer participation = new Participer();
+                participation.ajoutParticiper(montant, MaEnchere.Id);
+                
+            }
+            
+        }
+
         #endregion
 
 

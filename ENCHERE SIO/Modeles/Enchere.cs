@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace ENCHERE_SIO.Modeles
 {
     [Table("Enchere")]
-    public abstract class Enchere
+    public class Enchere
     {
         #region Attribut
         public static List<Enchere> CollClasse = new List<Enchere>();
@@ -17,7 +17,7 @@ namespace ENCHERE_SIO.Modeles
         private double _prixDeDepart;
         private DateTime _dateDebut;
         private DateTime _dateFin;
-        private double _prixActuel;
+        private double _prixActuel = 0;
         private double _prixReserve;
         private char _etat;
         private double _montant;

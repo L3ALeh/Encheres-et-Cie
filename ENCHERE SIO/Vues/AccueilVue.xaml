@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ENCHERE_SIO.Vues.AccueilVue"
              >
-    <ContentPage.ToolbarItems>
+    <!--<ContentPage.ToolbarItems>
         <ToolbarItem IconImageSource="https://cdn1.iconfinder.com/data/icons/ui-ux-set/24/menu-mini-512.png" 
 Text="" Clicked="Search_Clicked"/>
-    </ContentPage.ToolbarItems>
+    </ContentPage.ToolbarItems>-->
     
     <VerticalStackLayout>
         <Label 

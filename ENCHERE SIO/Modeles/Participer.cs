@@ -13,7 +13,7 @@ namespace ENCHERE_SIO.Modeles
     {
         #region Attributes
         private int _id;
-        private int _mise;
+        private double _mise;
         private DateTime _date;
         #endregion
 
@@ -37,11 +37,24 @@ namespace ENCHERE_SIO.Modeles
         public int Id { get => _id; set => _id = value; }
 
 
-        public int Mise { get => _mise; set => _mise = value; }
+        public double Mise { get => _mise; set => _mise = value; }
         public DateTime Date { get => _date; set => _date = value; }
         #endregion
 
         #region Methods
+
+
+        public void ajoutParticiper(double mise, int idEnchere)
+        {
+            this._mise = mise;
+            this._date = DateTime.Now;
+            this.IdEnchere = idEnchere;
+        }
+
+        public void Encherire()
+        {
+
+        }
         #endregion
 
     }
