@@ -7,8 +7,26 @@
         <ContentPage.Content>
         <StackLayout Orientation="Vertical" Padding="20" Spacing="30"
              BackgroundColor="#A8E2F0" >
-      
-            
+
+            <CarouselView Grid.Row="1" ItemsSource="{Binding MesEncheres}" PeekAreaInsets="80" Margin="0,-20,0,20"
+                      PositionChanged="CarouselPositionChanged">
+                <CarouselView.ItemsLayout>
+                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"/>
+                </CarouselView.ItemsLayout>
+                <CarouselView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid HeightRequest="520" WidthRequest="212" HorizontalOptions="Center">
+                            <Grid RowDefinitions="*,*,*" WidthRequest="175" HorizontalOptions="Center" Margin="0,50">
+                                <BoxView Grid.RowSpan="3" BackgroundColor="#A5A5A5" CornerRadius="35"/>
+                                <StackLayout Grid.Row="1" Padding="30" VerticalOptions="Center">
+                                    <Label Text="{Binding id}" TextColor="Black" FontSize="18" FontAttributes="Bold"
+                                        HorizontalTextAlignment="Center"/>
+                                </StackLayout>
+                            </Grid>
+                        </Grid>
+                    </DataTemplate>
+                </CarouselView.ItemTemplate>
+            </CarouselView>
             <Label 
             Text="Bienvenue à la page d'accueil des enchères"
             FontSize="16"
