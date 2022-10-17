@@ -22,7 +22,7 @@ namespace ENCHERE_SIO.VuesModeles
         #region Constructeur
         public EnchereTestVueModele()
         {
-            this.GetEnchereTest("19");
+            this.GetListeEnCheresEnCoursTypeClassique();
         }
         #endregion
 
