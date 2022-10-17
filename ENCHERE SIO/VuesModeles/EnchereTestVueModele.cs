@@ -23,9 +23,6 @@
         public EnchereTestVueModele()
         {
             this.GetEnchereTest("19");
-            //appel de thread pour les 6 dernieres encheres
-            //appel de thread pour rafrechir l'api
-            LanceThread();
         }
         #endregion
 
@@ -43,20 +40,20 @@
     //    }
     //    #endregion
 
-    //    #region Methode
-    //    public async void GetListeEnCheresEnCoursTypeClassique()
-    //    {
-    //        MaListeEncheresEnCoursTypeClassique = await _apiServices.GetAllAsync<EnchereClassique>
-    //            ("api/getEncheresEnCours", EnchereClassique.CollClasse);
-    //        EnchereClassique.CollClasse.Clear();
+        #region Methode
+        public async void GetListeEnCheresEnCours(int id)
+        {
+            MaListeEncheresEnCoursTypeClassique = await _apiServices.GetAllAsyncID<Enchere>
+                ("api/getEncheresEnCours", Enchere.CollClasse, "IdTypeEnchere", id);
+            Enchere.CollClasse.Clear();
 
-    //    }
+        }
 
-    //    public async void GetEnchereTest(string param)
-    //    {
-    //        MaEnchere = await _apiServices.GetOneAsyncID<EnchereClassique>
-    //            ("api/getEnchereTest", param);
-    //        EnchereClassique.CollClasse.Clear();
+        public async void GetEnchereTest(string param)
+        {
+            MaEnchere = await _apiServices.GetOneAsyncID<Enchere>
+                ("api/getEnchereTest", param);
+            Enchere.CollClasse.Clear();
 
         }
         #endregion
