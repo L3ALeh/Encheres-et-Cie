@@ -1,4 +1,5 @@
 ﻿using ENCHERE_SIO.Vues;
+using ENCHERE_SIO.VuesModeles;
 
 namespace ENCHERE_SIO;
 
@@ -8,6 +9,6 @@ public partial class App : Application
     {
         InitializeComponent();
 
-        MainPage = new NavigationPage(new AccueilVue());
+        MainPage = new NavigationPage(new EnchereTestVue());
     }
 }

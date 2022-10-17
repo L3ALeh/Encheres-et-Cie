@@ -11,11 +11,29 @@
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
+       <Label 
+            TextColor="Black"
+            Text="{Binding MaEnchere.PrixActuel}"
+            VerticalOptions="Center"
+            HorizontalOptions="Center"/>
+
         <Label 
             TextColor="Black"
             Text="{Binding MaEnchere.Id}"
             VerticalOptions="Center"
             HorizontalOptions="Center"/>
+
+        <Entry x:Name="montantEnchere"
+               Placeholder="€"
+               TextColor="Black"
+               BackgroundColor="LightGray"/>
+
+
+        <Button x:Name="validerMontant"
+                Text="Valider"
+                 VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Clicked="validerMontant_Clicked"/>
 
         <Entry />
     </VerticalStackLayout>

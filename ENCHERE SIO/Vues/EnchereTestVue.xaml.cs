@@ -12,4 +12,9 @@ public partial class EnchereTestVue : ContentPage
 		InitializeComponent();
 		BindingContext = _vueModele = new EnchereTestVueModele();
 	}
+
+    private void validerMontant_Clicked(object sender, EventArgs e)
+    {
+        _vueModele.PostEnchereTest(int.Parse(montantEnchere.Text));
+    }
 }
