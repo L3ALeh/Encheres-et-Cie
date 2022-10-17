@@ -1,4 +1,4 @@
-﻿using ENCHERE_SIO.Modeles;
+using ENCHERE_SIO.Modeles;
 using ENCHERE_SIO.services;
 using ENCHERE_SIO.Vues;
 using System;
@@ -11,6 +11,7 @@ namespace ENCHERE_SIO.VuesModeles
 {
     public class LoginVueModele:BaseVueModele
     {
+
         #region Attributes
         private readonly Api _apiServices = new Api();
 
@@ -43,5 +44,6 @@ namespace ENCHERE_SIO.VuesModeles
             }
         }
         #endregion
+
     }
 }
