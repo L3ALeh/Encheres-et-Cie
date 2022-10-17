@@ -46,6 +46,7 @@ namespace ENCHERE_SIO.Modeles
         public string Prenom { get => _prenom; set => _prenom = value; }
         [ManyToMany(typeof(Participer))]
         public List<Enchere> MesEncheres { get => _mesEncheres; set => _mesEncheres = value; }
+        public SecureString Password { get => _password; set => _password = value; }
         #endregion
 
         #region Methods
@@ -57,7 +58,7 @@ namespace ENCHERE_SIO.Modeles
             this._nom = leNom;
             this._prenom = lePrenom;
             this._mesEncheres = new List<Enchere>();
-            this._password = password;
+            this.Password = password;
             return this;
         }
         /// <summary>

@@ -4,10 +4,10 @@ namespace ENCHERE_SIO;
 
 public partial class App : Application
 {
-	public App()
-	{
-		InitializeComponent();
+    public App()
+    {
+        InitializeComponent();
 
-        MainPage = new NavigationPage(new LoginVue());
+        MainPage = new LoginVue();
     }
 }
