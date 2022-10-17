@@ -19,12 +19,12 @@ namespace ENCHERE_SIO.VuesModeles
 
         #endregion
 
-        #region Constructeur
-        public EnchereTestVueModele()
-        {
-            this.GetEnchereTest("19");
-        }
-        #endregion
+    //    #region Constructeur
+    //    public EnchereTestVueModele()
+    //    {
+    //        this.GetEnchereTest("19");
+    //    }
+    //    #endregion
 
         #region Getter/setter
         public ObservableCollection<Enchere> MaListeEncheresEnCoursTypeClassique
@@ -40,25 +40,23 @@ namespace ENCHERE_SIO.VuesModeles
         }
         #endregion
 
-        #region Methode
-        public async void GetListeEnCheresEnCours(int id)
-        {
-            MaListeEncheresEnCoursTypeClassique = await _apiServices.GetAllAsyncID<Enchere>
-                ("api/getEncheresEnCours", Enchere.CollClasse, "IdTypeEnchere", id);
-            Enchere.CollClasse.Clear();
+    //    #region Methode
+    //    public async void GetListeEnCheresEnCoursTypeClassique()
+    //    {
+    //        MaListeEncheresEnCoursTypeClassique = await _apiServices.GetAllAsync<EnchereClassique>
+    //            ("api/getEncheresEnCours", EnchereClassique.CollClasse);
+    //        EnchereClassique.CollClasse.Clear();
 
-        }
+    //    }
 
-        public async void GetEnchereTest(string param)
-        {
-            MaEnchere = await _apiServices.GetOneAsyncID<Enchere>
-                ("api/getEnchereTest", param);
-            Enchere.CollClasse.Clear();
+    //    public async void GetEnchereTest(string param)
+    //    {
+    //        MaEnchere = await _apiServices.GetOneAsyncID<EnchereClassique>
+    //            ("api/getEnchereTest", param);
+    //        EnchereClassique.CollClasse.Clear();
 
-        }
-
-
-        #endregion
+    //    }
+    //    #endregion
 
 
     }
