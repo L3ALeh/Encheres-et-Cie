@@ -13,7 +13,7 @@ namespace ENCHERE_SIO.Modeles
 
         #region Attribut
         private int _id;
-        private string nomType;
+        private string _nom;
         #endregion
 
         #region Constructeur
@@ -28,7 +28,7 @@ namespace ENCHERE_SIO.Modeles
         #region Getter/setter
         [PrimaryKey, AutoIncrement]
         public int Id { get => _id; set => _id = value; }
-        public string NomType { get => nomType; set => nomType = value; }
+        public string Nom { get => _nom; set => _nom = value; }
         #endregion
 
         #region Methode

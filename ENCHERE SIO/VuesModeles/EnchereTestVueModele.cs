@@ -22,7 +22,7 @@ namespace ENCHERE_SIO.VuesModeles
         #region Constructeur
         public EnchereTestVueModele()
         {
-            this.GetListeEnCheresEnCoursTypeClassique();
+            LanceThread();
         }
         #endregion
 
@@ -41,10 +41,10 @@ namespace ENCHERE_SIO.VuesModeles
         #endregion
 
         #region Methode
-        public async void GetListeEnCheresEnCoursTypeClassique()
+        public async void GetListeEnCheresEnCours(int id)
         {
-            MaListeEncheresEnCoursTypeClassique = await _apiServices.GetAllAsync<Enchere>
-                ("api/getEncheresEnCours", Enchere.CollClasse);
+            MaListeEncheresEnCoursTypeClassique = await _apiServices.GetAllAsyncID<Enchere>
+                ("api/getEncheresEnCours", Enchere.CollClasse, "IdTypeEnchere", id);
             Enchere.CollClasse.Clear();
 
         }
@@ -64,7 +64,7 @@ namespace ENCHERE_SIO.VuesModeles
 
         public async void get6derniersParticiper(int param)
         {
-            
+            await _apiServices
         }
 
         public void LanceThread()

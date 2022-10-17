@@ -16,15 +16,16 @@ namespace ENCHERE_SIO.Modeles
         private int _id;
         private DateTime _dateDebut;
         private DateTime _dateFin;
-        private double _prixActuel;
+        private Magasin _leMagasin;
+        private double _prixDepart;
         private double _prixReserve;
+        private double _prixActuel;
         private char _etat;
         private double _tempsTour;
         private Article _leProduit;
         private TypeEnchere _leTypeEnchere;
-
-        private List<User> _lesUsers;
-        private List<CaseSurprise> _lesCasesSurprises;
+        private List<User> _playerFlashes;
+        private List<CaseSurprise> _tableauFlash;
 
 
 
@@ -33,9 +34,9 @@ namespace ENCHERE_SIO.Modeles
         #endregion
 
         #region Constructeur
-        public Enchere(double prixActu, double prixRes,  DateTime dateDeb, DateTime dateFin, TypeEnchere typeEnchere, Article monArticle)
+        public Enchere(double prixActu, double prixRes,  DateTime dateDeb, DateTime dateFin, TypeEnchere typeEnchere, Article monArticle,Magasin lemagasin)
         {
-            this.AjoutEnchere(prixActu,prixRes,dateDeb,dateFin,typeEnchere,monArticle);
+            this.AjoutEnchere(prixActu,prixRes,dateDeb,dateFin,typeEnchere,monArticle,lemagasin);
         }
 
 
@@ -44,7 +45,7 @@ namespace ENCHERE_SIO.Modeles
         #region Getter/setter
         public DateTime DateDebut { get => _dateDebut; set => _dateDebut = value; }
         public DateTime DateFin { get => _dateFin; set => _dateFin = value; }
-        public double PrixActuel { get => _prixActuel; set => _prixActuel = value; }
+        public double PrixDepart { get => _prixDepart; set => _prixDepart = value; }
         public double PrixReserve { get => _prixReserve; set => _prixReserve = value; }
         public char Etat { get => _etat; set => _etat = value; }
 
@@ -58,27 +59,31 @@ namespace ENCHERE_SIO.Modeles
         public Article LeProduit { get => _leProduit; set => _leProduit = value; }
 
         [ManyToMany(typeof(Participer))]
-        public List<User> LesUsers { get => _lesUsers; set => _lesUsers = value; }
+        public List<User> LesUsers { get => _playerFlashes; set => _playerFlashes = value; }
 
         [OneToMany]
         public List<Participer> lesParticipations { get; set; }
         public double TempsTour { get => _tempsTour; set => _tempsTour = value; }
-        public List<CaseSurprise> LesCasesSurprises { get => _lesCasesSurprises; set => _lesCasesSurprises = value; }
+        public List<CaseSurprise> LesCasesSurprises { get => _tableauFlash; set => _tableauFlash = value; }
         public TypeEnchere TypeEchere { get => _leTypeEnchere; set => _leTypeEnchere = value; }
+        public double PrixActuel { get => _prixActuel; set => _prixActuel = value; }
+        public Magasin LeMagasin { get => _leMagasin; set => _leMagasin = value; }
         #endregion
 
         #region Methode
-        public virtual Enchere AjoutEnchere(double prixActu, double prixRes,  DateTime dateDeb, DateTime dateFin, TypeEnchere typeEnchere, Article monArticle)
+        public virtual Enchere AjoutEnchere(double prixActuel, double prixReserve,  DateTime dateDebut, DateTime dateFin, TypeEnchere typeEnchere, Article monArticle, Magasin lemagasin)
         {
-            this._prixActuel=prixActu;
-            this._prixReserve = prixRes;
-            this._dateDebut=dateDeb;
+            this._prixActuel = prixActuel;
+            this._prixReserve = prixReserve;
+            this._dateDebut=dateDebut;
             this._dateFin=dateFin;
-            this._lesUsers=new List<User>();
+            this._playerFlashes = new List<User>();
             this.lesParticipations = new List<Participer>();
             Enchere.CollClasse.Add(this);
             this._leTypeEnchere = typeEnchere;
             this._leProduit = monArticle;
+            this._leMagasin = lemagasin;
+
             
             
 

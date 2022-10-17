@@ -14,7 +14,7 @@ namespace ENCHERE_SIO.Modeles
         #region Attribut
         private double _lattitude;
         private double _longitude;
-        private string _nomMagasin;
+        private string _nom;
         private int _id;
         private string _adresse;
         private string _ville;
@@ -36,9 +36,9 @@ namespace ENCHERE_SIO.Modeles
         #region Getter/setter
         public double Lattitude { get => _lattitude; set => _lattitude = value; }
         public double Longitude { get => _longitude; set => _longitude = value; }
-        public string NomMagasin { get => _nomMagasin; set => _nomMagasin = value; }
+        public string Nom { get => _nom; set => _nom = value; }
         [PrimaryKey, AutoIncrement]
-        public int Id { get => _id; }
+        public int Id { get => _id; set => _id = value; }
         [ForeignKey(typeof(Article))]
         public int IdArticle { get; set; }
 
@@ -52,12 +52,15 @@ namespace ENCHERE_SIO.Modeles
         #endregion
 
         #region Methode
-        public Magasin AjoutMagasin(double latt, double longi, string magasin)
+        public Magasin AjoutMagasin(double lattitude, double longitude, string nom, string adresse, string ville, int codePostal, int Telephone)
         {
-            this._lattitude = latt;
-            this._longitude = longi;
-            this._nomMagasin = magasin;
-            this._id = 0;
+            this._lattitude = lattitude;
+            this._longitude = longitude;
+            this._nom = nom;
+            this._adresse = adresse;
+            this._ville = ville;
+            this._codePostal = codePostal;
+            this._telephone = Telephone;
             this.LesArticles= new List<Article>();
             return this;
         }
