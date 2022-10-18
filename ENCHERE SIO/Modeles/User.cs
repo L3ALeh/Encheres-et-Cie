@@ -23,11 +23,13 @@ namespace ENCHERE_SIO.Modeles
         #endregion
 
         #region Constructor
-        public User(int id,string password, string mail)
+        public User(string password, string mail, string nom, string prenom)
         {
-            _id = id;
+            
             _password = password;
             _mail = mail;
+            _nom = nom;
+            _prenom = prenom;
         }
         //public User(string mail, string nom, string prenom, string password)
         //    : this(mail, nom, prenom, ConvertPasswordToSecureString(password))
@@ -46,10 +48,11 @@ namespace ENCHERE_SIO.Modeles
 
         #region Getters/Setters
         [PrimaryKey,AutoIncrement]
-        public int Id { get { return _id; } }   
+        public int Id { get { return _id; } }  
         public string Mail { get => _mail; set => _mail = value; }
         public string Nom { get => _nom; set => _nom = value; }
         public string Prenom { get => _prenom; set => _prenom = value; }
+
         [ManyToMany(typeof(Participer))]
         
 
@@ -90,6 +93,12 @@ namespace ENCHERE_SIO.Modeles
         //    secureString.MakeReadOnly();
         //    return secureString;
         //}
+
+
+        public void setid(int id)
+        {
+            _id = id;
+        }
         #endregion
     }
 }

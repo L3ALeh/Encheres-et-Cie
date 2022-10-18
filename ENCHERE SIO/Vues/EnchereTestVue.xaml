@@ -36,5 +36,39 @@
                 Clicked="validerMontant_Clicked"/>
 
         <Entry />
+
+        <CollectionView ItemsSource="{Binding Mes6Participations}"  >
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="1"
+                       Grid.Column="0"
+                       Text="{Binding Pseudo}"
+                       FontAttributes="Bold" 
+                       TextColor="Red"/>
+
+                        <Label Grid.Row="1"
+                       Grid.Column="1"
+                       Text="{Binding PrixEnchere}"
+                       FontAttributes="Bold"
+                       TextColor="Black"/>
+
+                        <Button 
+                        Grid.Row="2"
+                        Text="Rejoindre l'enchère" 
+                            Clicked="Button_Clicked"
+                        />
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
     </VerticalStackLayout>
 </ContentPage>
