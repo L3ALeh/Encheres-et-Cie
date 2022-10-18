@@ -64,7 +64,7 @@ namespace ENCHERE_SIO.VuesModeles
 
         public async void get6derniersParticiper(int param)
         {
-            await _apiServices
+            
         }
 
         public void LanceThread()

@@ -9,6 +9,6 @@ public partial class App : Application
     {
         InitializeComponent();
 
-        MainPage = new NavigationPage(new EnchereTestVue());
+        MainPage = new NavigationPage(new EnchereClassiqueVue());
     }
 }
