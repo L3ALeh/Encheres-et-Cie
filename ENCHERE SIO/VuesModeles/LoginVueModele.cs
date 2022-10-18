@@ -42,7 +42,7 @@ namespace ENCHERE_SIO.VuesModeles
         public async void GetUserByMailAndPass()
         {
             UnUser = new User(0,"", "");
-            await _apiServices.GetOneAsync<User>("api/getUserByMailAndPass",UnUser);
+            await _apiServices.GetOneAsync<User>("api/getUserByMailAndPass", UnUser);
             if(UnUser != null)
             {
                 Application.Current.MainPage = new AccueilVue();

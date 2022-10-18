@@ -47,6 +47,7 @@
                         Clicked="Enchere_Clicked"
                         />
                             </Grid>
+                            
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>

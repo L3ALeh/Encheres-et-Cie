@@ -14,4 +14,10 @@ public partial class LoginVue : ContentPage
     {
         Navigation.PushAsync(new AccueilVue(), true);
     }
+	private void VerificationUserAndPass()
+	{
+		string password = Password.Text;
+		string email = Email.Text;
+		
+	}
 }
