@@ -39,7 +39,8 @@ namespace ENCHERE_SIO.VuesModeles
         #endregion
 
         #region Methods
-        
+        //plus tard rajouter les enchères pas encore commencées en fonction de la date de départ avec un compte à rebours
+        //avant que ça commence
         public async void GetEncheresClassiquesEnCours(int id)
         {
             MesEncheres = await _apiServices.GetAllAsyncID<Enchere>

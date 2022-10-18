@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ENCHERE_SIO.Vues.EnchereClassiqueVue">
     <ContentPage.Content>
+        <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
         <StackLayout Orientation="Vertical" Padding="20" Spacing="30"
              BackgroundColor="#A8E2F0" >
 
@@ -16,40 +17,39 @@
             VerticalOptions="Center"
             HorizontalOptions="Center"
             />
-            <CollectionView ItemsSource="{Binding MesEncheres}"  >
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Padding="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <Label Grid.Row="1"
+                <CollectionView ItemsSource="{Binding MesEncheres}"  >
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="10">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="Auto" />
+                                </Grid.ColumnDefinitions>
+                                <Label Grid.Row="1"
                        Grid.Column="1"
                        Text="{Binding LeProduit.Nom}"
                        FontAttributes="Bold" 
                        TextColor="Red"/>
 
-                            <Label Grid.Row="1"
+                                <Label Grid.Row="1"
                        Grid.Column="2"
                        Text="{Binding LeProduit.PrixReel}"
                        FontAttributes="Bold"
                        TextColor="Black"/>
 
-                            <Button 
+                                <Button 
                         Grid.Row="2"
                         Text="Rejoindre l'enchère" 
                         />
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-
-
-        </StackLayout>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>
