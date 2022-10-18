@@ -60,7 +60,7 @@ namespace ENCHERE_SIO.Modeles
             this._adresse = adresse;
             this._ville = ville;
             this._codePostal = codePostal;
-            this._telephone = Telephone;
+            this._portable = Telephone;
             this.LesArticles= new List<Article>();
             return this;
         }
