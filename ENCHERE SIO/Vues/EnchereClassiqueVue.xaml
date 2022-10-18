@@ -17,7 +17,7 @@
             VerticalOptions="Center"
             HorizontalOptions="Center"
             />
-                <CollectionView ItemsSource="{Binding MesEncheres}"  >
+                <CollectionView ItemsSource="{Binding MesEncheres}" SelectionChanged="CollectionView_SelectionChanged" SelectionMode="Single">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid Padding="10">
@@ -44,6 +44,7 @@
                                 <Button 
                         Grid.Row="2"
                         Text="Rejoindre l'enchère" 
+                        Clicked="Enchere_Clicked"
                         />
                             </Grid>
                         </DataTemplate>

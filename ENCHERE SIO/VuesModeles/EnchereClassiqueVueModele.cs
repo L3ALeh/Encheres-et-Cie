@@ -47,6 +47,7 @@ namespace ENCHERE_SIO.VuesModeles
                 ("api/getEncheresEnCours", Enchere.CollClasse, "IdTypeEnchere", id);
             Enchere.CollClasse.Clear();
         }
+
         #endregion
     }
 }

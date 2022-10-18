@@ -63,6 +63,9 @@
 	  <MauiXaml Update="Vues\EnchereFlashVue.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Vues\EnchereVue.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Vues\LoginVue.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
