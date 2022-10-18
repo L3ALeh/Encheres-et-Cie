@@ -10,7 +10,7 @@ namespace ENCHERE_SIO.Modeles
 {
     [Table("Enchere")]
     public class Enchere
-    {
+    { 
         #region Attribut
         public static List<Enchere> CollClasse = new List<Enchere>();
         private int _id;
