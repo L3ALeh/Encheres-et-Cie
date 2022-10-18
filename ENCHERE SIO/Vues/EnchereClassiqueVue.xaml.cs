@@ -11,4 +11,8 @@ public partial class EnchereClassiqueVue : ContentPage
         BindingContext = vueModele = new EnchereClassiqueVueModele();
 
     }
+    private void Enchere_Clicked(object sender, EventArgs e)
+    {
+
+    }
 }
