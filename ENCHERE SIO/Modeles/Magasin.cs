@@ -49,6 +49,7 @@ namespace ENCHERE_SIO.Modeles
         public int CodePostal { get => _codePostal; set => _codePostal = value; }
         public int Portable { get => _portable; set => _portable = value; }
 
+
         #endregion
 
         #region Methode

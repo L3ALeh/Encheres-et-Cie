@@ -29,8 +29,6 @@ namespace ENCHERE_SIO.Modeles
 
 
 
-
-
         #endregion
 
         #region Constructeur
