@@ -57,6 +57,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <MauiXaml Update="Vues\EnchereClassiqueVue.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Vues\EnchereFlashVue.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
