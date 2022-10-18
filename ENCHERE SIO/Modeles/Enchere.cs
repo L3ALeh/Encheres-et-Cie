@@ -24,7 +24,7 @@ namespace ENCHERE_SIO.Modeles
         private double _tempsTour;
         private Article _unArticle;
         private TypeEnchere _typeEnchere;
-
+         
         private List<User> _lesUsers;
         private List<CaseSurprise> _lesCasesSurprises;
 
