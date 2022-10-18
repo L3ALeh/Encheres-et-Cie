@@ -56,6 +56,30 @@ namespace ENCHERE_SIO.VuesModeles
             Enchere.CollClasse.Clear();
 
         }
+
+        public async void PostEnchereTest(int param)
+        {
+            await _apiServices.PostAsync<Participer>(new Participer(param, 1, MaEnchere.Id, 0, ""), "api/postEncherir");
+        }
+
+        public async void get6derniersParticiper(int param)
+        {
+            
+        }
+
+        public void LanceThread()
+        {
+            Task.Run(() =>
+            {
+
+                while (true)
+                {
+                    this.GetEnchereTest("13");
+                    this.GetListeEnCheresEnCours(1);
+                    Thread.Sleep(5000);
+                }
+            });
+        }
         #endregion
 
 

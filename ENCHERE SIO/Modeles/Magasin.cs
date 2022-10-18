@@ -16,6 +16,10 @@ namespace ENCHERE_SIO.Modeles
         private double _longitude;
         private string _nomMagasin;
         private int _id;
+        private string _adresse;
+        private string _ville;
+        private int _codePostal;
+        private int _portable;
         private List<Article> _lesArticles;
         #endregion
 
@@ -40,6 +44,11 @@ namespace ENCHERE_SIO.Modeles
 
         [OneToMany(nameof(IdArticle))]
         public List<Article> LesArticles { get => _lesArticles; set => _lesArticles = value; }
+        public string Adresse { get => _adresse; set => _adresse = value; }
+        public string Ville { get => _ville; set => _ville = value; }
+        public int CodePostal { get => _codePostal; set => _codePostal = value; }
+        public int Portable { get => _portable; set => _portable = value; }
+
         #endregion
 
         #region Methode
