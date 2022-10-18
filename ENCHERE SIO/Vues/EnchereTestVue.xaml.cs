@@ -17,4 +17,9 @@ public partial class EnchereTestVue : ContentPage
     {
         _vueModele.PostEnchereTest(int.Parse(montantEnchere.Text));
     }
+
+	private void Button_Clicked(object sender, EventArgs e)
+	{
+
+	}
 }

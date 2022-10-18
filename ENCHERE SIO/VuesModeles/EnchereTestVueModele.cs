@@ -16,6 +16,8 @@ namespace ENCHERE_SIO.VuesModeles
 
         private ObservableCollection<Enchere> _maListeEncheresEnCoursTypeClassique;
         private Enchere _maEnchere;
+        private ObservableCollection<Participer> _mes6Participations;
+        public static User usertest = new User("Btssio2017", "eleloarer.ledantec@gmail.com", "le loarer", "ewen");
 
         #endregion
 
@@ -23,6 +25,8 @@ namespace ENCHERE_SIO.VuesModeles
         public EnchereTestVueModele()
         {
             LanceThread();
+            GetEnchereTest("13");
+            usertest.setid(300);
         }
         #endregion
 
@@ -37,6 +41,12 @@ namespace ENCHERE_SIO.VuesModeles
         {
             get { return _maEnchere; }
             set { SetProperty(ref _maEnchere, value); }
+        }
+
+        public ObservableCollection<Participer> Mes6Participations
+        {
+            get { return _mes6Participations; }
+            set { SetProperty(ref _mes6Participations, value); }
         }
         #endregion
 
@@ -59,12 +69,14 @@ namespace ENCHERE_SIO.VuesModeles
 
         public async void PostEnchereTest(int param)
         {
-            await _apiServices.PostAsync<Participer>(new Participer(param, 1, MaEnchere.Id, 0, ""), "api/postEncherir");
+            await _apiServices.PostAsync<Participer>(new Participer(param, usertest, MaEnchere, usertest.Prenom), "api/postEncherir");
         }
 
         public async void get6derniersParticiper(int param)
         {
-            await _apiServices
+            Mes6Participations = await _apiServices.GetAllAsyncID<Participer>
+                ("api/getLastSixOffer", Participer.CollClasse,"Id", param);
+            Participer.CollClasse.Clear();
         }
 
         public void LanceThread()
@@ -74,8 +86,8 @@ namespace ENCHERE_SIO.VuesModeles
 
                 while (true)
                 {
-                    this.GetEnchereTest("13");
                     this.GetListeEnCheresEnCours(1);
+                    this.get6derniersParticiper(13);
                     Thread.Sleep(5000);
                 }
             });

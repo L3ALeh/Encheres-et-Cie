@@ -12,14 +12,14 @@ namespace ENCHERE_SIO.Modeles
     public class Article
     {
         #region Attribut
-        private double _prixReel;
+        private float _prixReel;
         private string _nom;
         private string _photo;
         private int _id;
         #endregion
 
         #region Constructeur
-        public Article(double montant, string nom, string photoURL)
+        public Article(float montant, string nom, string photoURL)
         {
             this._prixReel = montant;
             this._nom = nom;
@@ -28,7 +28,7 @@ namespace ENCHERE_SIO.Modeles
         #endregion
 
         #region Getter/setter
-        public double PrixReel { get => _prixReel; set => _prixReel = value; }
+        public float PrixReel { get => _prixReel; set => _prixReel = value; }
         public string Nom { get => _nom; set => _nom = value; }
         public string Photo { get => _photo; set => _photo = value; }
 
@@ -44,7 +44,7 @@ namespace ENCHERE_SIO.Modeles
         #endregion
 
         #region Methode
-        public Article AjoutArticle(double leMontant, string leNom, string url)
+        public Article AjoutArticle(float leMontant, string leNom, string url)
         {
             this._prixReel = leMontant;
             this._nom = leNom;

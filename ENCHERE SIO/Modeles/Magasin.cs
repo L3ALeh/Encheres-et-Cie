@@ -19,7 +19,7 @@ namespace ENCHERE_SIO.Modeles
         private string _adresse;
         private string _ville;
         private int _codePostal;
-        private int _telephone;
+        private int _portable;
         private List<Article> _lesArticles;
         #endregion
 
@@ -47,12 +47,12 @@ namespace ENCHERE_SIO.Modeles
         public string Adresse { get => _adresse; set => _adresse = value; }
         public string Ville { get => _ville; set => _ville = value; }
         public int CodePostal { get => _codePostal; set => _codePostal = value; }
-        public int Telephone { get => _telephone; set => _telephone = value; }
+        public int Portable { get => _portable; set => _portable = value; }
 
         #endregion
 
         #region Methode
-        public Magasin AjoutMagasin(double lattitude, double longitude, string nom, string adresse, string ville, int codePostal, int Telephone)
+        public Magasin AjoutMagasin(double lattitude, double longitude, string nom, string adresse, string ville, int codePostal, int Portable)
         {
             this._lattitude = lattitude;
             this._longitude = longitude;
@@ -60,7 +60,7 @@ namespace ENCHERE_SIO.Modeles
             this._adresse = adresse;
             this._ville = ville;
             this._codePostal = codePostal;
-            this._telephone = Telephone;
+            this._portable = Portable;
             this.LesArticles= new List<Article>();
             return this;
         }

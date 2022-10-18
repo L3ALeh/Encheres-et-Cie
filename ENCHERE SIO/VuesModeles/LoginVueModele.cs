@@ -41,7 +41,7 @@ namespace ENCHERE_SIO.VuesModeles
         #region Methods
         public async void GetUserByMailAndPass()
         {
-            UnUser = new User(0,"", "");
+            UnUser = new User("", "", "test","test");
             await _apiServices.GetOneAsync<User>("api/getUserByMailAndPass",UnUser);
             if(UnUser != null)
             {
