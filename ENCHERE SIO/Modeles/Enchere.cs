@@ -10,7 +10,7 @@ namespace ENCHERE_SIO.Modeles
 {
     [Table("Enchere")]
     public class Enchere
-    {
+    { 
         #region Attribut
         public static List<Enchere> CollClasse = new List<Enchere>();
         private int _id;
@@ -29,14 +29,12 @@ namespace ENCHERE_SIO.Modeles
 
 
 
-
-
         #endregion
 
         #region Constructeur
-        public Enchere(double prixActu, double prixRes,  DateTime dateDeb, DateTime dateFin, TypeEnchere typeEnchere, Article monArticle,Magasin lemagasin)
+        public Enchere(double prixDep, double prixRes,  DateTime dateDeb, DateTime dateFin, TypeEnchere typeEnchere, Article monArticle,Magasin lemagasin)
         {
-            this.AjoutEnchere(prixActu,prixRes,dateDeb,dateFin,typeEnchere,monArticle,lemagasin);
+            this.AjoutEnchere(prixDep,prixRes,dateDeb,dateFin,typeEnchere,monArticle,lemagasin);
         }
 
 
@@ -65,15 +63,15 @@ namespace ENCHERE_SIO.Modeles
         public List<Participer> lesParticipations { get; set; }
         public double TempsTour { get => _tempsTour; set => _tempsTour = value; }
         public List<CaseSurprise> LesCasesSurprises { get => _tableauFlash; set => _tableauFlash = value; }
-        public TypeEnchere TypeEchere { get => _leTypeEnchere; set => _leTypeEnchere = value; }
+        public TypeEnchere TypeEnchere { get => _leTypeEnchere; set => _leTypeEnchere = value; }
         public double PrixActuel { get => _prixActuel; set => _prixActuel = value; }
         public Magasin LeMagasin { get => _leMagasin; set => _leMagasin = value; }
         #endregion
 
         #region Methode
-        public virtual Enchere AjoutEnchere(double prixActuel, double prixReserve,  DateTime dateDebut, DateTime dateFin, TypeEnchere typeEnchere, Article monArticle, Magasin lemagasin)
+        public virtual Enchere AjoutEnchere(double prixDep, double prixReserve,  DateTime dateDebut, DateTime dateFin, TypeEnchere typeEnchere, Article monArticle, Magasin lemagasin)
         {
-            this._prixActuel = prixActuel;
+            this._prixDepart = prixDep;
             this._prixReserve = prixReserve;
             this._dateDebut=dateDebut;
             this._dateFin=dateFin;
