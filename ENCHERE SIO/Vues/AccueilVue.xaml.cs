@@ -15,7 +15,7 @@ public partial class AccueilVue : ContentPage
     }
     private void EnchereClass_Clicked(object sender, EventArgs e)
     {
-        //Navigation.PushAsync(new EnchereClassiqueVue(), true);
+        Navigation.PushAsync(new EnchereClassiqueVue(), true);
     }
     private void EnchereInversee_Clicked(object sender, EventArgs e)
     {

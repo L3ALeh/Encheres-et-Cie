@@ -3,30 +3,32 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ENCHERE_SIO.Vues.AccueilVue"
              >
+    
     <ContentPage.Content>
-        <StackLayout Orientation="Vertical" Padding="20" Spacing="30"
+        <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
+            <StackLayout Orientation="Vertical" Padding="20" Spacing="30"
              BackgroundColor="#A8E2F0" >
 
-            <CarouselView Grid.Row="1" ItemsSource="{Binding MesEncheres}" PeekAreaInsets="80" Margin="0,-20,0,20"
+                <CarouselView Grid.Row="1" ItemsSource="{Binding MesEncheres}" PeekAreaInsets="80" Margin="0,-20,0,20"
                     >
-                <CarouselView.ItemsLayout>
-                    <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"/>
-                </CarouselView.ItemsLayout>
-                <CarouselView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid HeightRequest="520" WidthRequest="212" HorizontalOptions="Center">
-                            <Grid RowDefinitions="*,*,*" WidthRequest="175" HorizontalOptions="Center" Margin="0,50">
-                                <BoxView Grid.RowSpan="3" BackgroundColor="#A5A5A5" CornerRadius="35"/>
-                                <StackLayout Grid.Row="1" Padding="30" VerticalOptions="Center">
-                                    <Label Text="{Binding nom}" TextColor="Black" FontSize="18" FontAttributes="Bold"
+                    <CarouselView.ItemsLayout>
+                        <LinearItemsLayout Orientation="Horizontal" ItemSpacing="10"/>
+                    </CarouselView.ItemsLayout>
+                    <CarouselView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid HeightRequest="520" WidthRequest="212" HorizontalOptions="Center">
+                                <Grid RowDefinitions="*,*,*" WidthRequest="175" HorizontalOptions="Center" Margin="0,50">
+                                    <BoxView Grid.RowSpan="3" BackgroundColor="#A5A5A5" CornerRadius="35"/>
+                                    <StackLayout Grid.Row="1" Padding="30" VerticalOptions="Center">
+                                        <Label Text="{Binding LeProduit.Nom}" TextColor="Black" FontSize="18" FontAttributes="Bold"
                                         HorizontalTextAlignment="Center"/>
-                                </StackLayout>
+                                    </StackLayout>
+                                </Grid>
                             </Grid>
-                        </Grid>
-                    </DataTemplate>
-                </CarouselView.ItemTemplate>
-            </CarouselView>
-            <Label 
+                        </DataTemplate>
+                    </CarouselView.ItemTemplate>
+                </CarouselView>
+                <Label 
             Text="Bienvenue à la page d'accueil des enchères"
             FontSize="16"
             FontAttributes="Bold"
@@ -35,15 +37,15 @@
             VerticalOptions="Center" 
               HorizontalOptions="Center"
             />
-            <Label
+                <Label
                 Text="Veuillez choisir un type d'enchère :"
                 FontSize="15"
                 TextColor="Purple"
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 />
-            <!--Btn enchere classique -->
-            <Button
+                <!--Btn enchere classique -->
+                <Button
                     Text="Enchères classiques" 
                     TextColor="White" 
                     FontSize="Medium" 
@@ -53,9 +55,9 @@
                     BackgroundColor="MediumPurple"
                     Clicked="EnchereClass_Clicked"
                     />
-            <!-- FIN btn -->
-            <!--Btn enchere inversées -->
-            <Button 
+                <!-- FIN btn -->
+                <!--Btn enchere inversées -->
+                <Button 
                     Text="Enchères inversées" 
                     TextColor="White" 
                     FontSize="Medium" 
@@ -65,9 +67,9 @@
                     BackgroundColor="MediumPurple"
                     Clicked="EnchereInversee_Clicked"
                     />
-            <!-- FIN btn -->
-            <!--Btn enchere flash -->
-            <Button
+                <!-- FIN btn -->
+                <!--Btn enchere flash -->
+                <Button
                     Text="Enchères flashs" 
                     TextColor="White" 
                     FontSize="Medium" 
@@ -77,14 +79,14 @@
                     BackgroundColor="MediumPurple"
                     Clicked="EnchereFlash_Clicked"
                     />
-            <!-- FIN btn -->
-            <Label
+                <!-- FIN btn -->
+                <Label
                 Text="Rechercher par endroit :"
                 TextColor="White"
                HorizontalOptions="Center"
                 VerticalOptions="Center"
                 />
-            <Button 
+                <Button 
                     Text="Carte" 
                     TextColor="White" 
                     FontSize="Medium" 
@@ -94,6 +96,7 @@
                     BackgroundColor="DarkSeaGreen"
                     />
 
-        </StackLayout>
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

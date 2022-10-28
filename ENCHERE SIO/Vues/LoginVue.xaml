@@ -51,7 +51,7 @@
 
                 <StackLayout Orientation="Vertical" Spacing="10">
                     <Entry x:Name="Email" 
-                           Text="{Binding Email}" 
+                           Text="" 
                            Placeholder="Email"  
                            FontAttributes="Italic"
                            TextColor="White"
@@ -61,7 +61,7 @@
                            Keyboard="Email"
                            ClearButtonVisibility="WhileEditing"/>
 
-                    <Entry x:Name="Password" Text="{Binding Password}" 
+                    <Entry x:Name="Password" Text="" 
                            Placeholder="Mot de passe"  
                            FontAttributes="Italic"
                            TextColor="White"
@@ -72,6 +72,11 @@
                            IsTextPredictionEnabled="false"
                            IsPassword="true"
                            ClearButtonVisibility="WhileEditing"/>
+                    <Label x:Name="motDePasseIncorect"
+                           Text="Identifant ou mot de passe incorect"
+                           TextColor="Red"
+                           FontSize="Small"/>
+
                 </StackLayout>
                 <!--rectangle login -->            
             </Frame>
@@ -86,6 +91,7 @@
                     WidthRequest="255"
                     CornerRadius="30"
                     BackgroundColor="#A37952"
+                    Clicked="Button_Clicked"
                     />
             
             <Button 

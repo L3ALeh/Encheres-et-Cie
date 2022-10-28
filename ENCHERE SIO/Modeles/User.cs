@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using SQLite;
 using SQLiteNetExtensions.Attributes;
+using System.Reflection.Metadata;
 
 namespace ENCHERE_SIO.Modeles
 {
@@ -17,19 +18,20 @@ namespace ENCHERE_SIO.Modeles
         
         private int _id;
         private string _password; //changer en secure string plus tard
-        private string _mail;
-        private string _nom;
-        private string _prenom;
+        private string _email;
+        private string _pseudo;
+        private string _photo;
+
         #endregion
 
         #region Constructor
-        public User(string password, string mail, string nom, string prenom)
+        public User(int id, string password, string mail, string nom)
         {
-            
+            _id = id;
             _password = password;
-            _mail = mail;
-            _nom = nom;
-            _prenom = prenom;
+            _email = mail;
+            //_pseudo = nom;
+            //_photo = photo;
         }
         //public User(string mail, string nom, string prenom, string password)
         //    : this(mail, nom, prenom, ConvertPasswordToSecureString(password))
@@ -49,35 +51,34 @@ namespace ENCHERE_SIO.Modeles
         #region Getters/Setters
         [PrimaryKey,AutoIncrement]
         public int Id { get { return _id; } }  
-        public string Mail { get => _mail; set => _mail = value; }
-        public string Nom { get => _nom; set => _nom = value; }
-        public string Prenom { get => _prenom; set => _prenom = value; }
+        public string Email { get => _email; set => _email = value; }
+        public string Pseudo { get => _pseudo; set => _pseudo = value; }
 
         [ManyToMany(typeof(Participer))]
         
 
 
         [OneToMany]
-        public List<Participer> lesParticipations { get; set; }
+        public List<Participer> lesEncherirs { get; set; }
         public string Password { get => _password; set => _password = value; }
+        public string Photo { get => _photo; set => _photo = value; }
         #endregion
 
         #region Methods
-        public User AjoutUser(string leMail, string leNom, string lePrenom, string mdp, string password)
-        {
-            //ConvertPasswordToSecureString(mdp);
-            this._id = 0;
-            this._mail = leMail;
-            this._nom = leNom;
-            this._prenom = lePrenom;
-            //this._mesEncheres = new List<Enchere>();
-            this._password = password;
-            return this;
-        }
+        //public User AjoutUser(string leMail, string leNom, string password)
+        //{
+        //    //ConvertPasswordToSecureString(mdp);
+        //    this._id = 0;
+        //    this._email = leMail;
+        //    this._pseudo = leNom;
+        //    //this._mesEncheres = new List<Enchere>();
+        //    this._password = password;
+        //    return this;
+        //}
         /// <summary>
         /// Ne laisse pas le mdp sous forme de texte brut
         /// </summary>
-        /// <param name="password"></param>
+        /// <param></param>
         /// <returns>
         /// 1- création d'un secure string
         /// 2- attribution caractère par caractère du password
@@ -95,10 +96,6 @@ namespace ENCHERE_SIO.Modeles
         //}
 
 
-        public void setid(int id)
-        {
-            _id = id;
-        }
         #endregion
     }
 }

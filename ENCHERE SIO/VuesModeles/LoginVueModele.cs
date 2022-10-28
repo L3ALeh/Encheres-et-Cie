@@ -26,7 +26,7 @@ namespace ENCHERE_SIO.VuesModeles
         #region Constructor
         public LoginVueModele()
         {
-            this.GetUserByMailAndPass();
+
         }
         #endregion
 
@@ -39,13 +39,18 @@ namespace ENCHERE_SIO.VuesModeles
         #endregion
 
         #region Methods
-        public async void GetUserByMailAndPass()
+        public async void GetUserByMailAndPass(User leuser)
         {
-            UnUser = new User(0,"", "");
-            await _apiServices.GetOneAsync<User>("api/getUserByMailAndPass", UnUser);
-            if(UnUser != null)
+            UnUser = new User(0, "", "", "");
+            UnUser = await _apiServices.GetOneAsync<User>
+                ("api/getUserByMailAndPass", leuser);
+            if(UnUser != null )
             {
                 Application.Current.MainPage = new AccueilVue();
+            }
+            else
+            {
+                
             }
         }
         #endregion

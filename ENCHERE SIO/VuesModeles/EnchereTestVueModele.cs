@@ -17,7 +17,7 @@ namespace ENCHERE_SIO.VuesModeles
         private ObservableCollection<Enchere> _maListeEncheresEnCoursTypeClassique;
         private Enchere _maEnchere;
         private ObservableCollection<Participer> _mes6Participations;
-        public static User usertest = new User("Btssio2017", "eleloarer.ledantec@gmail.com", "le loarer", "ewen");
+        public static User usertest = new User(0,"Btssio2017", "eleloarer.ledantec@gmail.com", "le loarer");
 
         #endregion
 
@@ -26,7 +26,7 @@ namespace ENCHERE_SIO.VuesModeles
         {
             LanceThread();
             GetEnchereTest("13");
-            usertest.setid(300);
+
         }
         #endregion
 
@@ -69,7 +69,7 @@ namespace ENCHERE_SIO.VuesModeles
 
         public async void PostEnchereTest(int param)
         {
-            await _apiServices.PostAsync<Participer>(new Participer(param, usertest, MaEnchere, usertest.Prenom), "api/postEncherir");
+            await _apiServices.PostAsync<Participer>(new Participer(param, usertest, MaEnchere, usertest.Pseudo), "api/postEncherir");
         }
 
         public async void get6derniersParticiper(int param)
