@@ -15,14 +15,14 @@ public partial class AccueilVue : ContentPage
     }
     private void EnchereClass_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new EnchereClassiqueVue(), true);
+        Navigation.PushAsync(new ListeEnchereClassiqueVue(), true);
     }
     private void EnchereInversee_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new EnchereInverseeVue(), true);
+        Navigation.PushAsync(new ListeEnchereInverseeVue(), true);
     }
     private void EnchereFlash_Clicked(object sender, EventArgs e)
     {
-        Navigation.PushAsync(new EnchereFlashVue(), true);
+        Navigation.PushAsync(new ListeEnchereFlashVue(), true);
     }
 }

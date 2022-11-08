@@ -5,10 +5,10 @@ namespace ENCHERE_SIO.Vues;
 using ENCHERE_SIO.Modeles;
 using ENCHERE_SIO.VuesModeles;
 
-public partial class EnchereTestVue : ContentPage
+public partial class EnchereClassiqueVue : ContentPage
 {
 	EnchereClassiqueVueModele _vueModele;
-	public EnchereTestVue(Enchere currentEnchere)
+	public EnchereClassiqueVue(Enchere currentEnchere)
 	{
 		InitializeComponent();
 		BindingContext = _vueModele = new EnchereClassiqueVueModele(currentEnchere);

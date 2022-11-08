@@ -4,11 +4,11 @@ using ENCHERE_SIO.Modeles;
 
 namespace ENCHERE_SIO.Vues;
 
-public partial class EnchereClassiqueVue : ContentPage
+public partial class ListeEnchereClassiqueVue : ContentPage
 {
 
 	ListeEnchereClassiqueVueModele vueModele;
-	public EnchereClassiqueVue()
+	public ListeEnchereClassiqueVue()
 	{
 		InitializeComponent();
         BindingContext = vueModele = new ListeEnchereClassiqueVueModele();
@@ -22,6 +22,6 @@ public partial class EnchereClassiqueVue : ContentPage
     private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
         var current = (Enchere)e.CurrentSelection.FirstOrDefault();
-        Navigation.PushAsync(new EnchereTestVue(current), true);
+        Navigation.PushAsync(new EnchereClassiqueVue(current), true);
     }
 }
