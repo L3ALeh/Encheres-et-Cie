@@ -1,27 +1,26 @@
 using ENCHERE_SIO.VuesModeles;
-using System.Xml.Linq;
-using ENCHERE_SIO.Modeles;
 
 namespace ENCHERE_SIO.Vues;
 
-public partial class EnchereClassiqueVue : ContentPage
-{
+using ENCHERE_SIO.Modeles;
+using ENCHERE_SIO.VuesModeles;
 
-	EnchereClassiqueVueModele vueModele;
-	public EnchereClassiqueVue()
+public partial class EnchereTestVue : ContentPage
+{
+	EnchereClassiqueVueModele _vueModele;
+	public EnchereTestVue(Enchere currentEnchere)
 	{
 		InitializeComponent();
-        BindingContext = vueModele = new EnchereClassiqueVueModele();
+		BindingContext = _vueModele = new EnchereClassiqueVueModele(currentEnchere);
+	}
 
-    }
-    private void Enchere_Clicked(object sender, EventArgs e)
+    private void validerMontant_Clicked(object sender, EventArgs e)
     {
-        //Navigation.PushAsync(new EnchereVue(),true);
+        _vueModele.PostEnchereTest(int.Parse(montantEnchere.Text));
     }
 
-    private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-    {
-        var current = (Enchere)e.CurrentSelection.FirstOrDefault();
-        Navigation.PushAsync(new EnchereVue(current), true);
-    }
+	private void Button_Clicked(object sender, EventArgs e)
+	{
+
+	}
 }

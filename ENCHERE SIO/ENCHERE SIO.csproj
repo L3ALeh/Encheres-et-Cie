@@ -57,13 +57,19 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="Vues\EnchereClassiqueVue.xaml">
+	  <Compile Update="Vues\EnchereClassiqueVue.xaml.cs">
+	    <DependentUpon>EnchereClassiqueVue.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Vues\ListeEnchereClassiqueVue.xaml.cs">
+	    <DependentUpon>ListeEnchereClassiqueVue.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Vues\ListeEnchereClassiqueVue.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Vues\EnchereFlashVue.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
-	  <MauiXaml Update="Vues\EnchereVue.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="Vues\LoginVue.xaml">

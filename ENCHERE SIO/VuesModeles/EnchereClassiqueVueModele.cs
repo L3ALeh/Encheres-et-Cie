@@ -9,45 +9,91 @@ using System.Threading.Tasks;
 
 namespace ENCHERE_SIO.VuesModeles
 {
-    public class EnchereClassiqueVueModele:BaseVueModele
+    public class EnchereClassiqueVueModele : BaseVueModele
     {
-        #region Attributes
+        #region Attribut
         private readonly Api _apiServices = new Api();
-        private ObservableCollection<Enchere> _mesEncheres;
+
+        private ObservableCollection<Enchere> _maListeEncheresEnCoursTypeClassique;
+        private Enchere _maEnchere;
+        private ObservableCollection<Participer> _mes6Participations;
+        public static User usertest = new User(0,"Btssio2017", "eleloarer.ledantec@gmail.com", "le loarer");
+
         #endregion
 
-        #region Constructor
-        public EnchereClassiqueVueModele()
+        #region Constructeur
+        public EnchereClassiqueVueModele(Enchere currentEnchere)
         {
-            _mesEncheres = new ObservableCollection<Enchere>();
-            this.GetEncheresClassiquesEnCours(1);
+            LanceThread(currentEnchere.Id);
+            GetEnchereTest("" + currentEnchere.Id);
+
         }
         #endregion
 
-        #region Getters/Setters
-        public ObservableCollection<Enchere> MesEncheres
+        #region Getter/setter
+        public ObservableCollection<Enchere> MaListeEncheresEnCoursTypeClassique
         {
-            get
-            {
-                return _mesEncheres;
-            }
-            set
-            {
-                SetProperty(ref _mesEncheres, value);
-            }
+            get { return _maListeEncheresEnCoursTypeClassique; }
+            set { SetProperty(ref _maListeEncheresEnCoursTypeClassique, value); }
+        }
+
+        public Enchere MaEnchere
+        {
+            get { return _maEnchere; }
+            set { SetProperty(ref _maEnchere, value); }
+        }
+
+        public ObservableCollection<Participer> Mes6Participations
+        {
+            get { return _mes6Participations; }
+            set { SetProperty(ref _mes6Participations, value); }
         }
         #endregion
 
-        #region Methods
-        //plus tard rajouter les enchères pas encore commencées en fonction de la date de départ avec un compte à rebours
-        //avant que ça commence
-        public async void GetEncheresClassiquesEnCours(int id)
+        #region Methode
+        public async void GetListeEnCheresEnCours(int id)
         {
-            MesEncheres = await _apiServices.GetAllAsyncID<Enchere>
+            MaListeEncheresEnCoursTypeClassique = await _apiServices.GetAllAsyncID<Enchere>
                 ("api/getEncheresEnCours", Enchere.CollClasse, "IdTypeEnchere", id);
             Enchere.CollClasse.Clear();
+
         }
 
+        public async void GetEnchereTest(string param)
+        {
+            MaEnchere = await _apiServices.GetOneAsyncID<Enchere>
+                ("api/getEnchereTest", param);
+            Enchere.CollClasse.Clear();
+
+        }
+
+        public async void PostEnchereTest(int param)
+        {
+            await _apiServices.PostAsync<Participer>(new Participer(param, usertest, MaEnchere, usertest.Pseudo), "api/postEncherir");
+        }
+
+        public async void get6derniersParticiper(int param)
+        {
+            Mes6Participations = await _apiServices.GetAllAsyncID<Participer>
+                ("api/getLastSixOffer", Participer.CollClasse,"Id", param);
+            Participer.CollClasse.Clear();
+        }
+
+        public void LanceThread(int param)
+        {
+            Task.Run(() =>
+            {
+
+                while (true)
+                {
+                    this.GetListeEnCheresEnCours(1);
+                    this.get6derniersParticiper(param);
+                    Thread.Sleep(5000);
+                }
+            });
+        }
         #endregion
+
+
     }
 }
