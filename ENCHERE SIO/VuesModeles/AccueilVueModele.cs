@@ -20,7 +20,9 @@ namespace ENCHERE_SIO.VuesModeles
         public AccueilVueModele()
         {
             _mesEncheres = new ObservableCollection<Enchere>();
+            
             this.GetEncheresEnCours();
+            Thread.Sleep(3000);
         }
         #endregion
 

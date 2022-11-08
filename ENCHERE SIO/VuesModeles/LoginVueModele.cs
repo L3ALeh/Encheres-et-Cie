@@ -44,14 +44,7 @@ namespace ENCHERE_SIO.VuesModeles
             UnUser = new User(0, "", "", "");
             UnUser = await _apiServices.GetOneAsync<User>
                 ("api/getUserByMailAndPass", leuser);
-            if(UnUser != null )
-            {
-                Application.Current.MainPage = new AccueilVue();
-            }
-            else
-            {
-                
-            }
+          
         }
         #endregion
 
