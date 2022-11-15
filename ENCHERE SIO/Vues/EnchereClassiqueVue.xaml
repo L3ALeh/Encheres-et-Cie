@@ -47,7 +47,7 @@
                 Text="Valider"
                  VerticalOptions="Center"
                 HorizontalOptions="Center"
-                Clicked="validerMontant_Clicked"/>
+                Clicked="validerAuto_Clicked"/>
         </StackLayout>
        
         <CollectionView ItemsSource="{Binding Mes6Participations}"  >

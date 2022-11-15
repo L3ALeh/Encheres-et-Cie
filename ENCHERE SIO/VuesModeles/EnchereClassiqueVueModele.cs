@@ -17,8 +17,8 @@ namespace ENCHERE_SIO.VuesModeles
         private ObservableCollection<Enchere> _maListeEncheresEnCoursTypeClassique;
         private Enchere _maEnchere;
         private ObservableCollection<Participer> _mes6Participations;
-        public static User User;
-
+        public static User leUser;
+        private int _valeurMax;
         #endregion
 
         #region Constructeur
@@ -48,6 +48,10 @@ namespace ENCHERE_SIO.VuesModeles
             get { return _mes6Participations; }
             set { SetProperty(ref _mes6Participations, value); }
         }
+
+        public int ValeurMax { get => _valeurMax; set => _valeurMax = value; }
+
+
         #endregion
 
         #region Methode
@@ -67,9 +71,9 @@ namespace ENCHERE_SIO.VuesModeles
 
         }
 
-        public async void PostEnchereTest(int param)
+        public async void PostEnchereTest(float param)
         {
-            await _apiServices.PostAsync<Participer>(new Participer(param, User, MaEnchere, User.Pseudo), "api/postEncherir");
+            await _apiServices.PostAsync<Participer>(new Participer(param, leUser, MaEnchere, leUser.Pseudo), "api/postEncherir");
         }
 
         public async void get6derniersParticiper(int param)
@@ -79,6 +83,19 @@ namespace ENCHERE_SIO.VuesModeles
             Participer.CollClasse.Clear();
         }
 
+        public async void PostEnchereAuto(int valeurMax)
+        {
+            if(leUser != null && Mes6Participations != null)
+            {
+                if (Mes6Participations[0].PrixEnchere < valeurMax &&
+               Mes6Participations[0].Pseudo != leUser.Pseudo)
+                {
+                    PostEnchereTest(Mes6Participations[0].PrixEnchere + 1);
+                }
+            }
+           
+        }
+
         public async void GetUserById()
         {
 
@@ -86,7 +103,7 @@ namespace ENCHERE_SIO.VuesModeles
 
             if(oauthToken != null)
             {
-                User = await _apiServices.GetOneAsyncID<User>
+                leUser = await _apiServices.GetOneAsyncID<User>
                     ("api/getUser", oauthToken);
                 Enchere.CollClasse.Clear();
             }
@@ -101,6 +118,7 @@ namespace ENCHERE_SIO.VuesModeles
                 {
                     this.GetListeEnCheresEnCours(1);
                     this.get6derniersParticiper(param);
+                    this.PostEnchereAuto(ValeurMax);
                     this.GetUserById();
                     Thread.Sleep(5000);
                 }
