@@ -17,7 +17,7 @@ namespace ENCHERE_SIO.VuesModeles
         private ObservableCollection<Enchere> _maListeEncheresEnCoursTypeClassique;
         private Enchere _maEnchere;
         private ObservableCollection<Participer> _mes6Participations;
-        public static User usertest = new User(0,"Btssio2017", "eleloarer.ledantec@gmail.com", "le loarer");
+        public static User User;
 
         #endregion
 
@@ -69,7 +69,7 @@ namespace ENCHERE_SIO.VuesModeles
 
         public async void PostEnchereTest(int param)
         {
-            await _apiServices.PostAsync<Participer>(new Participer(param, usertest, MaEnchere, usertest.Pseudo), "api/postEncherir");
+            await _apiServices.PostAsync<Participer>(new Participer(param, User, MaEnchere, User.Pseudo), "api/postEncherir");
         }
 
         public async void get6derniersParticiper(int param)
@@ -77,6 +77,19 @@ namespace ENCHERE_SIO.VuesModeles
             Mes6Participations = await _apiServices.GetAllAsyncID<Participer>
                 ("api/getLastSixOffer", Participer.CollClasse,"Id", param);
             Participer.CollClasse.Clear();
+        }
+
+        public async void GetUserById()
+        {
+
+            string oauthToken = await SecureStorage.Default.GetAsync("session");
+
+            if(oauthToken != null)
+            {
+                User = await _apiServices.GetOneAsyncID<User>
+                    ("api/getUser", oauthToken);
+                Enchere.CollClasse.Clear();
+            }
         }
 
         public void LanceThread(int param)
@@ -88,6 +101,7 @@ namespace ENCHERE_SIO.VuesModeles
                 {
                     this.GetListeEnCheresEnCours(1);
                     this.get6derniersParticiper(param);
+                    this.GetUserById();
                     Thread.Sleep(5000);
                 }
             });

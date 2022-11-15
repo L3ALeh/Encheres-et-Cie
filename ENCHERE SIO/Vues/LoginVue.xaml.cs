@@ -22,8 +22,8 @@ public partial class LoginVue : ContentPage
 		string email = Email.Text;
 
 		vueModele.GetUserByMailAndPass(new User(0,password,email,""));
-		
-	}
+        
+    }
 
 	private void Button_Clicked(object sender, EventArgs e)
 	{
@@ -31,4 +31,5 @@ public partial class LoginVue : ContentPage
 		motDePasseIncorect.IsVisible = true;
         Navigation.PushAsync(new AccueilVue(), true);
     }
+
 }

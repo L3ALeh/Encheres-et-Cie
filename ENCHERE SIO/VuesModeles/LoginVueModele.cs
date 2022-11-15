@@ -43,6 +43,9 @@ namespace ENCHERE_SIO.VuesModeles
             UnUser = new User(0, "", "", "");
             UnUser = await _apiServices.GetOneAsync<User>
                 ("api/getUserByMailAndPass", leuser);
+
+            await SecureStorage.Default.SetAsync("session", "" + UnUser.Id);
+
         }
         #endregion
 
