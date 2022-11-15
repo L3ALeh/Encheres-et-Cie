@@ -12,7 +12,7 @@ public partial class ListeEnchereClassiqueVue : ContentPage
 	{
 		InitializeComponent();
         BindingContext = vueModele = new ListeEnchereClassiqueVueModele();
-
+        collView.SelectedItem = null;
     }
     private void Enchere_Clicked(object sender, EventArgs e)
     {

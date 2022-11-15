@@ -17,7 +17,7 @@
             VerticalOptions="Center"
             HorizontalOptions="Center"
             />
-                <CollectionView ItemsSource="{Binding MesEncheres}" SelectionChanged="CollectionView_SelectionChanged" SelectionMode="Single">
+                <CollectionView x:Name="collView" ItemsSource="{Binding MesEncheres}" SelectionChanged="CollectionView_SelectionChanged" SelectionMode="Single">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
                             <Grid Padding="10">
