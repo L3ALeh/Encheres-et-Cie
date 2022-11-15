@@ -20,7 +20,7 @@ namespace ENCHERE_SIO.VuesModeles
         public ListeEnchereInverseeVueModele()
         {
             _mesEncheres = new ObservableCollection<Enchere>();
-            this.GetEncheresInverseesEnCours(1);
+            this.GetEncheresInverseesEnCours(2);
         }
         #endregion
 
