@@ -11,7 +11,9 @@ public partial class EnchereClassiqueVue : ContentPage
 	public EnchereClassiqueVue(Enchere currentEnchere)
 	{
 		InitializeComponent();
-		BindingContext = _vueModele = new EnchereClassiqueVueModele(currentEnchere);
+        
+        BindingContext = _vueModele = new EnchereClassiqueVueModele(currentEnchere);
+		
 	}
 
     private void validerMontant_Clicked(object sender, EventArgs e)
@@ -36,5 +38,10 @@ public partial class EnchereClassiqueVue : ContentPage
 	private void ImageButton_Clicked(object sender, EventArgs e)
 	{
 		Navigation.PushAsync(new ListeEnchereClassiqueVue());
+	}
+
+	private void validerAuto_Clicked(object sender, EventArgs e)
+	{
+		_vueModele.ValeurMax = int.Parse(AutoMontant.Text);
 	}
 }

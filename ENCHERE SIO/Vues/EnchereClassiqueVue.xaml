@@ -23,7 +23,8 @@
             Text="{Binding MaEnchere.Id}"
             VerticalOptions="Center"
             HorizontalOptions="Center"/>
-
+        
+        <StackLayout Orientation="Horizontal">
             <Entry x:Name="montantEnchere"
                Placeholder="€"
                TextColor="Black"
@@ -35,22 +36,34 @@
                  VerticalOptions="Center"
                 HorizontalOptions="Center"
                 Clicked="validerMontant_Clicked"/>
+        </StackLayout>
 
-            <Entry />
+        <StackLayout Orientation="Horizontal">
+            <Entry x:Name="AutoMontant"
+               Placeholder="votre plage d'enchere auto :"
+               TextColor="Black"
+               BackgroundColor="LightGray"/>
 
-            <CollectionView ItemsSource="{Binding Mes6Participations}"  >
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Grid Padding="10">
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="Auto" />
-                                <RowDefinition Height="Auto" />
-                            </Grid.RowDefinitions>
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="Auto" />
-                                <ColumnDefinition Width="Auto" />
-                            </Grid.ColumnDefinitions>
-                            <Label Grid.Row="1"
+            <Button x:Name="validerAuto"
+                Text="Valider"
+                 VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Clicked="validerAuto_Clicked"/>
+        </StackLayout>
+       
+        <CollectionView ItemsSource="{Binding Mes6Participations}"  >
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <Grid Padding="10">
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto" />
+                            <ColumnDefinition Width="Auto" />
+                        </Grid.ColumnDefinitions>
+                        <Label Grid.Row="1"
                        Grid.Column="0"
                        Text="{Binding Pseudo}"
                        FontAttributes="Bold" 
