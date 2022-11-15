@@ -79,6 +79,10 @@ namespace ENCHERE_SIO.VuesModeles
             Participer.CollClasse.Clear();
         }
 
+        public async void ParticipationAuto()
+        {
+
+        }
         public void LanceThread(int param)
         {
             Task.Run(() =>

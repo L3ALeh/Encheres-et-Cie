@@ -22,21 +22,34 @@
             Text="{Binding MaEnchere.Id}"
             VerticalOptions="Center"
             HorizontalOptions="Center"/>
-
-        <Entry x:Name="montantEnchere"
+        
+        <StackLayout Orientation="Horizontal">
+            <Entry x:Name="montantEnchere"
                Placeholder="€"
                TextColor="Black"
                BackgroundColor="LightGray"/>
 
 
-        <Button x:Name="validerMontant"
+            <Button x:Name="validerMontant"
                 Text="Valider"
                  VerticalOptions="Center"
                 HorizontalOptions="Center"
                 Clicked="validerMontant_Clicked"/>
+        </StackLayout>
 
-        <Entry />
+        <StackLayout Orientation="Horizontal">
+            <Entry x:Name="AutoMontant"
+               Placeholder="votre plage d'enchere auto :"
+               TextColor="Black"
+               BackgroundColor="LightGray"/>
 
+            <Button x:Name="validerAuto"
+                Text="Valider"
+                 VerticalOptions="Center"
+                HorizontalOptions="Center"
+                Clicked="validerMontant_Clicked"/>
+        </StackLayout>
+       
         <CollectionView ItemsSource="{Binding Mes6Participations}"  >
             <CollectionView.ItemTemplate>
                 <DataTemplate>
