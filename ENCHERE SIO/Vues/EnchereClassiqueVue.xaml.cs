@@ -18,12 +18,26 @@ public partial class EnchereClassiqueVue : ContentPage
 
     private void validerMontant_Clicked(object sender, EventArgs e)
     {
-        _vueModele.PostEnchereTest(int.Parse(montantEnchere.Text));
+		if (montantEnchere.Text == "" || montantEnchere.Text is null)
+		{
+			montantNul.IsVisible = true;
+		}
+		else
+		{
+            _vueModele.PostEnchereTest(int.Parse(montantEnchere.Text));
+			montantNul.IsVisible = false;
+			montantEnchere.Text = "";
+        }       
     }
 
 	private void Button_Clicked(object sender, EventArgs e)
 	{
 
+	}
+
+	private void ImageButton_Clicked(object sender, EventArgs e)
+	{
+		Navigation.PushAsync(new ListeEnchereClassiqueVue());
 	}
 
 	private void validerAuto_Clicked(object sender, EventArgs e)

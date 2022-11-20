@@ -19,7 +19,6 @@ namespace ENCHERE_SIO.VuesModeles
 
         #region Attributes
         private readonly Api _apiServices = new Api();
-
         private User _unUser;
         #endregion
 

@@ -3,21 +3,22 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ENCHERE_SIO.Vues.EnchereClassiqueVue"
              Title="EnchereClassiqueVue">
-    <VerticalStackLayout BackgroundColor="White">
-        
-        <Label 
+    <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
+        <VerticalStackLayout BackgroundColor="White">
+            <ImageButton Source="https://cdn-icons-png.flaticon.com/512/93/93634.png" Clicked="ImageButton_Clicked"></ImageButton>
+            <Label 
             TextColor="Black"
             Text="Welcome to .NET MAUI!"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-       <Label 
+            <Label 
             TextColor="Black"
             Text="{Binding MaEnchere.PrixActuel}"
             VerticalOptions="Center"
             HorizontalOptions="Center"/>
 
-        <Label 
+            <Label 
             TextColor="Black"
             Text="{Binding MaEnchere.Id}"
             VerticalOptions="Center"
@@ -29,7 +30,7 @@
                TextColor="Black"
                BackgroundColor="LightGray"/>
 
-
+            <Label x:Name="montantNul" Text="Veuillez séléctionner un montant" TextColor="Red" IsVisible="False"></Label>
             <Button x:Name="validerMontant"
                 Text="Valider"
                  VerticalOptions="Center"
@@ -68,16 +69,17 @@
                        FontAttributes="Bold" 
                        TextColor="Red"/>
 
-                        <Label Grid.Row="1"
+                            <Label Grid.Row="1"
                        Grid.Column="1"
                        Text="{Binding PrixEnchere}"
                        FontAttributes="Bold"
                        TextColor="Black"/>
 
-                        
-                    </Grid>
-                </DataTemplate>
-            </CollectionView.ItemTemplate>
-        </CollectionView>
-    </VerticalStackLayout>
+
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+            </CollectionView>
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
