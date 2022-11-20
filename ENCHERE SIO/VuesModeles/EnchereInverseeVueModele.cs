@@ -25,7 +25,8 @@ namespace ENCHERE_SIO.VuesModeles
         #region Constructeur
         public EnchereInverseeVueModele(Enchere currentEnchere)
         {
-
+            LanceThread(currentEnchere.Id);
+            GetEnchereTest("" + currentEnchere.Id);
         }
         #endregion
 
@@ -36,7 +37,7 @@ namespace ENCHERE_SIO.VuesModeles
 
         #endregion
 
-        #region 
+        #region Methodes
         public async void GetEnchereTest(string param)
         {
             MaEnchere = await _apiServices.GetOneAsyncID<Enchere>
@@ -46,6 +47,7 @@ namespace ENCHERE_SIO.VuesModeles
 
         public async void PostEnchereTest(float param)
         {
+            
             if(param > MaEnchere.PrixReserve && param < Mes6Participations[0].PrixEnchere)
             {
                 await _apiServices.PostAsync<Participer>
@@ -81,6 +83,7 @@ namespace ENCHERE_SIO.VuesModeles
             {
                 while (true)
                 {
+                    
                     this.get6derniersParticiper(param);
                     this.GetUserById();
                     Thread.Sleep(5000);
