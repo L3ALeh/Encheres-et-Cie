@@ -55,13 +55,7 @@ namespace ENCHERE_SIO.VuesModeles
         #endregion
 
         #region Methode
-        public async void GetListeEnCheresEnCours(int id)
-        {
-            MaListeEncheresEnCoursTypeClassique = await _apiServices.GetAllAsyncID<Enchere>
-                ("api/getEncheresEnCours", Enchere.CollClasse, "IdTypeEnchere", id);
-            Enchere.CollClasse.Clear();
 
-        }
 
         public async void GetEnchereTest(string param)
         {
@@ -83,17 +77,16 @@ namespace ENCHERE_SIO.VuesModeles
             Participer.CollClasse.Clear();
         }
 
-        public async void PostEnchereAuto(int valeurMax)
+        public void PostEnchereAuto(int valeurMax)
         {
             if(leUser != null && Mes6Participations != null)
             {
                 if (Mes6Participations[0].PrixEnchere < valeurMax &&
-               Mes6Participations[0].Pseudo != leUser.Pseudo)
+                Mes6Participations[0].Pseudo != leUser.Pseudo)
                 {
                    PostEnchereTest(Mes6Participations[0].PrixEnchere + 1);
                 }
             }
-           
         }
 
         public async void GetUserById()
@@ -116,7 +109,6 @@ namespace ENCHERE_SIO.VuesModeles
 
                 while (true)
                 {
-                    this.GetListeEnCheresEnCours(1);
                     this.get6derniersParticiper(param);
                     this.PostEnchereAuto(ValeurMax);
                     this.GetUserById();

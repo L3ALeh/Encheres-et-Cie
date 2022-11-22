@@ -14,9 +14,8 @@ namespace ENCHERE_SIO.VuesModeles
         #region Attribut
         private readonly Api _apiServices = new Api();
         private Enchere _maEnchere;
-        private ObservableCollection<Participer> _mes6Participations;
         public static User leUser;
-        private ObservableCollection<Enchere> _maListeEncheresEnCoursTypeClassique;
+        private Participer _participation;
 
 
         #endregion
@@ -24,8 +23,8 @@ namespace ENCHERE_SIO.VuesModeles
         #region Constructeur
         public EnchereInverseeVueModele(Enchere currentEnchere)
         {
-            LanceThread(currentEnchere.Id);
-            //GetEnchereTest("" + currentEnchere.Id);
+            LanceThread(""+currentEnchere.Id);
+            GetEnchereTest("" + currentEnchere.Id);
         }
         #endregion
 
@@ -35,11 +34,12 @@ namespace ENCHERE_SIO.VuesModeles
             get { return _maEnchere; }
             set { SetProperty(ref _maEnchere, value); }
         }
-        public ObservableCollection<Participer> Mes6Participations
+        public Participer Participation
         {
-            get { return _mes6Participations; }
-            set { SetProperty(ref _mes6Participations, value); }
+            get { return _participation; }
+            set { SetProperty(ref _participation, value); }
         }
+
         #endregion
 
         #region Methodes
@@ -50,23 +50,14 @@ namespace ENCHERE_SIO.VuesModeles
             Enchere.CollClasse.Clear();
         }
 
-        public async void PostEnchereTest(float param)
+        //ne marche pas j'essaye de récupérer la participation de l'enchère pour avoir le prix actuel
+        public async void GetLaParticipation(string param)
         {
-            
-            //if(param > MaEnchere.PrixReserve && param < Mes6Participations[0].PrixEnchere)
-            //{
-                await _apiServices.PostAsync<Participer>
-                    (new Participer(param, leUser, MaEnchere, leUser.Pseudo),
-                    "api/postEncherirInverse");
-            //}
-        }
-
-        public async void get6derniersParticiper(int param)
-        {
-            Mes6Participations = await _apiServices.GetAllAsyncID<Participer>
-                ("api/getLastSixOffer", Participer.CollClasse, "Id", param);
+            Participation = await _apiServices.GetOneAsyncID<Participer>
+                ("api/getLastOffer", param);
             Participer.CollClasse.Clear();
         }
+
 
         public async void GetUserById()
         {
@@ -79,26 +70,16 @@ namespace ENCHERE_SIO.VuesModeles
                 Enchere.CollClasse.Clear();
             }
         }
-        public async void GetListeEnCheresEnCours(int id)
-        {
-            MaListeEncheresEnCoursTypeClassique = await _apiServices.GetAllAsyncID<Enchere>
-                ("api/getEncheresEnCours", Enchere.CollClasse, "IdTypeEnchere", id);
-            Enchere.CollClasse.Clear();
-
-        }
 
 
-        public void LanceThread(int param)
+        public void LanceThread(string param)
         {
             Task.Run(() =>
             {
                 while (true)
                 {
-                    
-                    this.get6derniersParticiper(param);
-                    //this.GetListeEnCheresEnCours(2);
-                    this.GetEnchereTest(param.ToString());
                     this.GetUserById();
+                    this.GetLaParticipation(param);
                     Thread.Sleep(5000);
                 }
             });

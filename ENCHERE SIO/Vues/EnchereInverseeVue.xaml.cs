@@ -26,7 +26,7 @@ public partial class EnchereInverseeVue : ContentPage
         }
         else
         {
-            _vueModele.PostEnchereTest(int.Parse(montantEnchere.Text));
+            
             montantNul.IsVisible = false;
             montantEnchere.Text = "";
         }
