@@ -90,7 +90,7 @@ namespace ENCHERE_SIO.VuesModeles
                 if (Mes6Participations[0].PrixEnchere < valeurMax &&
                Mes6Participations[0].Pseudo != leUser.Pseudo)
                 {
-                    PostEnchereTest(Mes6Participations[0].PrixEnchere + 1);
+                   PostEnchereTest(Mes6Participations[0].PrixEnchere + 1);
                 }
             }
            

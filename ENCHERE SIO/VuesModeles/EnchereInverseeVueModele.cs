@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ENCHERE_SIO.VuesModeles
 {
-    public class EnchereInverseeVueModele
+    public class EnchereInverseeVueModele : BaseVueModele
     {
         #region Attribut
         private readonly Api _apiServices = new Api();
@@ -18,22 +18,29 @@ namespace ENCHERE_SIO.VuesModeles
         private Enchere _maEnchere;
         private ObservableCollection<Participer> _mes6Participations;
         public static User leUser;
-        
-       
+        private ObservableCollection<Enchere> _maListeEncheresEnCoursTypeClassique;
+
+
         #endregion
 
         #region Constructeur
         public EnchereInverseeVueModele(Enchere currentEnchere)
         {
             LanceThread(currentEnchere.Id);
-            GetEnchereTest("" + currentEnchere.Id);
+            //GetEnchereTest("" + currentEnchere.Id);
         }
         #endregion
 
         #region getter/setter
         public ObservableCollection<Enchere> MaListEnchereEncheresEncoursTypeInversee { get => _maListEnchereEncheresEncoursTypeInversee; set => _maListEnchereEncheresEncoursTypeInversee = value; }
-        public Enchere MaEnchere { get => _maEnchere; set => _maEnchere = value; }
-        public ObservableCollection<Participer> Mes6Participations { get => _mes6Participations; set => _mes6Participations = value; }
+        public Enchere MaEnchere { get => _maEnchere; set { SetProperty(ref _maEnchere, value); } } 
+        public ObservableCollection<Participer> Mes6Participations { get => _mes6Participations; set { SetProperty(ref _mes6Participations, value);}}
+
+        public ObservableCollection<Enchere> MaListeEncheresEnCoursTypeClassique
+        {
+            get { return _maListeEncheresEnCoursTypeClassique; }
+            set { SetProperty(ref _maListeEncheresEnCoursTypeClassique, value); }
+        }
 
         #endregion
 
@@ -48,12 +55,12 @@ namespace ENCHERE_SIO.VuesModeles
         public async void PostEnchereTest(float param)
         {
             
-            if(param > MaEnchere.PrixReserve && param < Mes6Participations[0].PrixEnchere)
-            {
+            //if(param > MaEnchere.PrixReserve && param < Mes6Participations[0].PrixEnchere)
+            //{
                 await _apiServices.PostAsync<Participer>
                     (new Participer(param, leUser, MaEnchere, leUser.Pseudo),
                     "api/postEncherirInverse");
-            }
+            //}
         }
 
         public async void get6derniersParticiper(int param)
@@ -74,7 +81,13 @@ namespace ENCHERE_SIO.VuesModeles
                 Enchere.CollClasse.Clear();
             }
         }
+        public async void GetListeEnCheresEnCours(int id)
+        {
+            MaListeEncheresEnCoursTypeClassique = await _apiServices.GetAllAsyncID<Enchere>
+                ("api/getEncheresEnCours", Enchere.CollClasse, "IdTypeEnchere", id);
+            Enchere.CollClasse.Clear();
 
+        }
 
 
         public void LanceThread(int param)
@@ -85,6 +98,8 @@ namespace ENCHERE_SIO.VuesModeles
                 {
                     
                     this.get6derniersParticiper(param);
+                    //this.GetListeEnCheresEnCours(2);
+                    this.GetEnchereTest(param.ToString());
                     this.GetUserById();
                     Thread.Sleep(5000);
                 }

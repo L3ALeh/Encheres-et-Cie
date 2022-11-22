@@ -69,7 +69,7 @@ namespace ENCHERE_SIO.Modeles
         #endregion
 
         #region Methode
-        public virtual Enchere AjoutEnchere(double prixDep, double prixReserve,  DateTime dateDebut, DateTime dateFin, TypeEnchere typeEnchere, Article monArticle, Magasin lemagasin)
+        public virtual Enchere AjoutEnchere(double prixDep, double prixReserve,  DateTime dateDebut, DateTime dateFin, TypeEnchere leTypeEnchere, Article monArticle, Magasin lemagasin)
         {
             this._prixDepart = prixDep;
             this._prixReserve = prixReserve;
@@ -78,7 +78,7 @@ namespace ENCHERE_SIO.Modeles
             this._playerFlashes = new List<User>();
             this.lesParticipations = new List<Participer>();
             Enchere.CollClasse.Add(this);
-            this._leTypeEnchere = typeEnchere;
+            this._leTypeEnchere = leTypeEnchere;
             this._leProduit = monArticle;
             this._leMagasin = lemagasin;
 
