@@ -5,22 +5,22 @@ namespace ENCHERE_SIO.Vues;
 
 public partial class ListeEnchereInverseeVue : ContentPage
 {
-	private ListeEnchereInverseeVueModele vueModele;
+	ListeEnchereInverseeVueModele vueModele;
 	public ListeEnchereInverseeVue()
 	{
 		InitializeComponent();
 		BindingContext = vueModele = new ListeEnchereInverseeVueModele();
-        collView.SelectedItem = null;
-    }
+		collView.SelectedItem = null;
+	}
 
-	private void collView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+	private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
 	{
-        var current = (Enchere)e.CurrentSelection.FirstOrDefault();
-        Navigation.PushAsync(new EnchereInverseeVue(current), true);
-    }
+		var current = (Enchere)e.CurrentSelection.FirstOrDefault();
+		Navigation.PushAsync(new EnchereInverseeVue(current), true);
+	}
 
 	private void Button_Clicked(object sender, EventArgs e)
 	{
-
+		
 	}
 }

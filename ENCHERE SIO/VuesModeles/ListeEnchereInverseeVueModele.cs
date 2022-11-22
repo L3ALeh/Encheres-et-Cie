@@ -9,22 +9,22 @@ using System.Threading.Tasks;
 
 namespace ENCHERE_SIO.VuesModeles
 {
-    public class ListeEnchereInverseeVueModele:BaseVueModele
+    public class ListeEnchereInverseeVueModele : BaseVueModele
     {
-        #region Attributes
+        #region Attribut
         private readonly Api _apiServices = new Api();
         private ObservableCollection<Enchere> _mesEncheres;
         #endregion
 
-        #region Constructor
+        #region Constructeur
         public ListeEnchereInverseeVueModele()
         {
             _mesEncheres = new ObservableCollection<Enchere>();
-            this.GetEncheresInverseesEnCours(2);
+            this.GetEnchereInverseesEnCours(2);
         }
         #endregion
 
-        #region Getters/Setters
+        #region getter/setter
         public ObservableCollection<Enchere> MesEncheres
         {
             get
@@ -38,14 +38,16 @@ namespace ENCHERE_SIO.VuesModeles
         }
         #endregion
 
-        #region Methods
-        public async void GetEncheresInverseesEnCours(int id)
+        #region Methodes
+        //plus tard rajouter les enchères pas encore commencées en fonction de la date de départ avec un compte à rebours
+        //avant que ça commence
+
+        public async void GetEnchereInverseesEnCours(int id)
         {
             MesEncheres = await _apiServices.GetAllAsyncID<Enchere>
                 ("api/getEncheresEnCours", Enchere.CollClasse, "IdTypeEnchere", id);
             Enchere.CollClasse.Clear();
         }
-
         #endregion
     }
 }

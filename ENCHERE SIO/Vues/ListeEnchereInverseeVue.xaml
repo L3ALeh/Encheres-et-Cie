@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ENCHERE_SIO.Vues.ListeEnchereInverseeVue"
              Title="ListeEnchereInverseeVue">
-    <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
+    <ContentPage.Content>
+        <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
         <StackLayout Orientation="Vertical" Padding="20" Spacing="30"
              BackgroundColor="#A8E2F0" >
 
@@ -17,7 +18,7 @@
             VerticalOptions="Center"
             HorizontalOptions="Center"
             />
-            <CollectionView x:Name="collView" ItemsSource="{Binding MesEncheres}" SelectionChanged="collView_SelectionChanged" SelectionMode="Single">
+            <CollectionView x:Name="collView" ItemsSource="{Binding MesEncheres}" SelectionChanged="CollectionView_SelectionChanged" SelectionMode="Single">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <Grid Padding="10">
@@ -53,4 +54,5 @@
             </CollectionView>
         </StackLayout>
     </ScrollView>
+    </ContentPage.Content>
 </ContentPage>
