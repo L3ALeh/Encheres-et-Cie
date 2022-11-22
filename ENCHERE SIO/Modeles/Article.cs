@@ -19,11 +19,11 @@ namespace ENCHERE_SIO.Modeles
         #endregion
 
         #region Constructeur
-        public Article(float montant, string nom, string photoURL)
+        public Article(float prixReel, string nom, string photo)
         {
-            this._prixReel = montant;
+            this._prixReel = prixReel;
             this._nom = nom;
-            this._photo = photoURL;
+            this._photo = photo;
         }
         #endregion
 

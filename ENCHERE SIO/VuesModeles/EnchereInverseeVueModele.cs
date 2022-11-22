@@ -9,12 +9,10 @@ using System.Threading.Tasks;
 
 namespace ENCHERE_SIO.VuesModeles
 {
-    public class EnchereInverseeVueModele
+    public class EnchereInverseeVueModele:BaseVueModele
     {
         #region Attribut
         private readonly Api _apiServices = new Api();
-
-        private ObservableCollection<Enchere> _maListEnchereEncheresEncoursTypeInversee;
         private Enchere _maEnchere;
         private ObservableCollection<Participer> _mes6Participations;
         public static User leUser;
@@ -31,10 +29,16 @@ namespace ENCHERE_SIO.VuesModeles
         #endregion
 
         #region getter/setter
-        public ObservableCollection<Enchere> MaListEnchereEncheresEncoursTypeInversee { get => _maListEnchereEncheresEncoursTypeInversee; set => _maListEnchereEncheresEncoursTypeInversee = value; }
-        public Enchere MaEnchere { get => _maEnchere; set => _maEnchere = value; }
-        public ObservableCollection<Participer> Mes6Participations { get => _mes6Participations; set => _mes6Participations = value; }
-
+        public Enchere MaEnchere
+        {
+            get { return _maEnchere; }
+            set { SetProperty(ref _maEnchere, value); }
+        }
+        public ObservableCollection<Participer> Mes6Participations
+        {
+            get { return _mes6Participations; }
+            set { SetProperty(ref _mes6Participations, value); }
+        }
         #endregion
 
         #region Methodes
