@@ -5,15 +5,10 @@
 >
     
         <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
-            <VerticalStackLayout BackgroundColor="White">
-                <ImageButton Source="https://cdn-icons-png.flaticon.com/512/93/93634.png" Clicked="ImageButton_Clicked"></ImageButton>
-                <Label 
-                TextColor="Black"
-                Text="Welcome to .NET MAUI!"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
+            <VerticalStackLayout BackgroundColor="AntiqueWhite">
+            <ImageButton Source="https://cdn-icons-png.flaticon.com/512/93/93634.png" Clicked="ImageButton_Clicked"></ImageButton>
 
-                <Label 
+            <Label 
                 TextColor="Black"
                 Text="{Binding MaEnchere.LeProduit.Nom}"
                 VerticalOptions="Center"
@@ -31,6 +26,12 @@
                 VerticalOptions="Center"
                 HorizontalOptions="Center"
                 />
+            <Label
+                Text="Le prix actuel de l'enchère est de :"
+                TextColor="Red"
+                VerticalOptions="Center"
+                HorizontalOptions="Center"/>
+            <Label Text="{Binding MaEnchere.PrixDepart}" TextColor="CadetBlue" HorizontalOptions="Center"></Label>
                 
             <StackLayout Orientation="Horizontal">
                 <Entry x:Name="montantEnchere"
