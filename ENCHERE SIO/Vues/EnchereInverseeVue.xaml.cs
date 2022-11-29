@@ -1,6 +1,5 @@
 using ENCHERE_SIO.Modeles;
 using ENCHERE_SIO.VuesModeles;
-using ENCHERE_SIO.Modeles;
 namespace ENCHERE_SIO.Vues;
 
 public partial class EnchereInverseeVue : ContentPage
@@ -27,7 +26,7 @@ public partial class EnchereInverseeVue : ContentPage
         }
         else
         {
-            _vueModele.PostEnchereTest(int.Parse(montantEnchere.Text));
+            
             montantNul.IsVisible = false;
             montantEnchere.Text = "";
         }
