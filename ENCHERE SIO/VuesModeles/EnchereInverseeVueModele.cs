@@ -55,12 +55,12 @@ namespace ENCHERE_SIO.VuesModeles
         public async void PostEnchereTest(float param)
         {
             
-            //if(param > MaEnchere.PrixReserve && param < Mes6Participations[0].PrixEnchere)
-            //{
+            if(param > MaEnchere.PrixReserve && param < Mes6Participations[0].PrixEnchere)
+            {
                 await _apiServices.PostAsync<Participer>
                     (new Participer(param, leUser, MaEnchere, leUser.Pseudo),
                     "api/postEncherirInverse");
-            //}
+            }
         }
 
         public async void get6derniersParticiper(int param)
