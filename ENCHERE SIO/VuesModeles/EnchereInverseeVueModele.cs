@@ -52,15 +52,6 @@ namespace ENCHERE_SIO.VuesModeles
             Enchere.CollClasse.Clear();
         }
 
-        //ne marche pas j'essaye de récupérer la participation de l'enchère pour avoir le prix actuel
-        public async void GetLaParticipation(string param)
-        {
-            Participation = await _apiServices.GetOneAsyncID<Participer>
-                ("api/getLastOffer", param);
-            Participer.CollClasse.Clear();
-        }
-
-
         public async void GetUserById()
         {
             string oauthToken = await SecureStorage.Default.GetAsync("session");
