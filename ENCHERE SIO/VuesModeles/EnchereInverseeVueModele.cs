@@ -79,9 +79,6 @@ namespace ENCHERE_SIO.VuesModeles
                 while (true)
                 {
                     this.GetUserById();
-                    
-                    this.GetLaParticipation(param);
-                    
                     Thread.Sleep(5000);
                     setNouveauPrixInversee(20, 10);
                 }
