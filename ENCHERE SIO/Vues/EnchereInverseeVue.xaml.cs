@@ -9,24 +9,8 @@ public partial class EnchereInverseeVue : ContentPage
     public EnchereInverseeVue(Enchere currentEnchere)
     {
         InitializeComponent();
-        BindingContext = vueModele = new EnchereInverseeVueModele();
+        BindingContext = vueModele = new EnchereInverseeVueModele(currentEnchere);
 
-    private void ImageButton_Clicked(object sender, EventArgs e)
-    {
-        Navigation.PushAsync(new ListeEnchereInverseeVue());
-    }
 
-    private void validerMontant_Clicked(object sender, EventArgs e)
-    {
-        
-        {
-            montantNul.IsVisible = true;
-        }
-        else
-        {
-            
-            montantNul.IsVisible = false;
-            montantEnchere.Text = "";
-        }
     }
 }
