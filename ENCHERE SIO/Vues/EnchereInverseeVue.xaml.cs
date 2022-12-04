@@ -9,9 +9,7 @@ public partial class EnchereInverseeVue : ContentPage
     public EnchereInverseeVue(Enchere currentEnchere)
     {
         InitializeComponent();
-        BindingContext = _vueModele = new EnchereInverseeVueModele(currentEnchere);
-
-    }
+        BindingContext = vueModele = new EnchereInverseeVueModele();
 
     private void ImageButton_Clicked(object sender, EventArgs e)
     {
@@ -20,7 +18,7 @@ public partial class EnchereInverseeVue : ContentPage
 
     private void validerMontant_Clicked(object sender, EventArgs e)
     {
-        if(montantEnchere.Text == "" || montantEnchere.Text == null)
+        
         {
             montantNul.IsVisible = true;
         }
