@@ -21,15 +21,17 @@ namespace ENCHERE_SIO.Modeles
         private string _email;
         private string _pseudo;
         private string _photo;
+        private bool tag;
 
         #endregion
 
         #region Constructor
-        public User(int id, string password, string mail, string nom)
+        public User(int id, string password, string mail, string nom, bool tag = true)
         {
             _id = id;
             _password = password;
             _email = mail;
+            this.tag = tag;
             //_pseudo = nom;
             //_photo = photo;
         }
@@ -62,6 +64,7 @@ namespace ENCHERE_SIO.Modeles
         public List<Participer> lesEncherirs { get; set; }
         public string Password { get => _password; set => _password = value; }
         public string Photo { get => _photo; set => _photo = value; }
+        public bool Tag { get => tag; set => tag = value; }
         #endregion
 
         #region Methods
