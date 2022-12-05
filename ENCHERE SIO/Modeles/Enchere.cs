@@ -2,6 +2,7 @@
 using SQLiteNetExtensions.Attributes;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -24,7 +25,8 @@ namespace ENCHERE_SIO.Modeles
         private double _tempsTour;
         private Article _leProduit;
         private TypeEnchere _leTypeEnchere;
-        private List<User> _playerFlashes;
+        private ObservableCollection<User> _playerFlashes;
+        private ObservableCollection<User> _lesUsers;
         private List<CaseSurprise> _tableauFlash;
 
 
@@ -55,9 +57,7 @@ namespace ENCHERE_SIO.Modeles
 
         [OneToOne(nameof(IdProduit))]
         public Article LeProduit { get => _leProduit; set => _leProduit = value; }
-
-        [ManyToMany(typeof(Participer))]
-        public List<User> LesUsers { get => _playerFlashes; set => _playerFlashes = value; }
+        public ObservableCollection<User> LesPlayerFlashes { get => _playerFlashes; set => _playerFlashes = value; }
 
         [OneToMany]
         public List<Participer> lesParticipations { get; set; }
@@ -66,6 +66,7 @@ namespace ENCHERE_SIO.Modeles
         public TypeEnchere TypeEnchere { get => _leTypeEnchere; set => _leTypeEnchere = value; }
         public double PrixActuel { get => _prixActuel; set => _prixActuel = value; }
         public Magasin LeMagasin { get => _leMagasin; set => _leMagasin = value; }
+        public ObservableCollection<User> LesUsers { get => _lesUsers; set => _lesUsers = value; }
         #endregion
 
         #region Methode
@@ -75,13 +76,13 @@ namespace ENCHERE_SIO.Modeles
             this._prixReserve = prixReserve;
             this._dateDebut=dateDebut;
             this._dateFin=dateFin;
-            this._playerFlashes = new List<User>();
+            this._playerFlashes = new ObservableCollection<User>();
             this.lesParticipations = new List<Participer>();
             Enchere.CollClasse.Add(this);
             this._leTypeEnchere = leTypeEnchere;
             this._leProduit = monArticle;
             this._leMagasin = lemagasin;
-
+            this._lesUsers = new ObservableCollection<User>();
             
             
 

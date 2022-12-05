@@ -23,8 +23,10 @@ namespace ENCHERE_SIO.VuesModeles
         #region Constructeur
         public EnchereInverseeVueModele(Enchere currentEnchere)
         {
-            LanceThread(""+currentEnchere.Id);
+            
             GetEnchereTest("" + currentEnchere.Id);
+            LanceThread("" + currentEnchere.Id);
+
         }
         #endregion
 
@@ -62,6 +64,14 @@ namespace ENCHERE_SIO.VuesModeles
             }
         }
 
+        public void setNouveauPrixInversee(int nbSecondeDecroissante, double euroParDecroissance)
+        {
+            TimeSpan ts = MaEnchere.DateFin - MaEnchere.DateDebut;
+            double temps = (MaEnchere.DateFin - MaEnchere.DateDebut).TotalSeconds;
+            //temps -= (DateTime.Now - MaEnchere.DateDebut).TotalSeconds;
+            //MaEnchere.PrixActuel -= (temps / nbSecondeDecroissante) * euroParDecroissance;
+        }
+
         public void LanceThread(string param)
         {
             Task.Run(() =>
@@ -70,6 +80,7 @@ namespace ENCHERE_SIO.VuesModeles
                 {
                     this.GetUserById();
                     Thread.Sleep(5000);
+                    setNouveauPrixInversee(20, 10);
                 }
             });
         }
