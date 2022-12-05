@@ -1,53 +1,69 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ENCHERE_SIO.Vues.ListeEnchereClassiqueVue">
+<ContentPage
+    x:Class="ENCHERE_SIO.Vues.ListeEnchereClassiqueVue"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundImageSource="https://mir-s3-cdn-cf.behance.net/project_modules/disp/496ecb14589707.562865d064f9e.png"
+    NavigationPage.HasBackButton="True"
+    NavigationPage.HasNavigationBar="True">
     <ContentPage.Content>
         <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
-        <StackLayout Orientation="Vertical" Padding="20" Spacing="30"
-             BackgroundColor="#A8E2F0" >
-
-            
-            <Label
-            Text="Choisissez une enchère : "
-            FontSize="16"
-            FontAttributes="Bold"
-            HeightRequest="25"
-            TextColor="Purple"
-            VerticalOptions="Center"
-            HorizontalOptions="Center"
-            />
-                <CollectionView x:Name="collView" ItemsSource="{Binding MesEncheres}" SelectionChanged="CollectionView_SelectionChanged" SelectionMode="Single">
+            <StackLayout
+                Padding="20"
+                Orientation="Vertical"
+                Spacing="30">
+                <Label
+                    FontAttributes="Bold"
+                    FontSize="16"
+                    HeightRequest="25"
+                    HorizontalOptions="Center"
+                    Text="Choisissez une enchère : "
+                    TextColor="Purple"
+                    VerticalOptions="Center" />
+                <CollectionView
+                    x:Name="collView"
+                    ItemsSource="{Binding MesEncheres}"
+                    SelectionChanged="CollectionView_SelectionChanged"
+                    SelectionMode="Single">
                     <CollectionView.ItemTemplate>
                         <DataTemplate>
-                            <Grid Padding="10">
+                            <Grid Padding="20">
                                 <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto" />
-                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="100" />
+                                    <RowDefinition Height="35" />
                                 </Grid.RowDefinitions>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="Auto" />
+                                    <ColumnDefinition Width="200" />
+                                    <ColumnDefinition Width="200" />
+                                    <ColumnDefinition Width="200" />
                                 </Grid.ColumnDefinitions>
-                                <Label Grid.Row="1"
-                       Grid.Column="1"
-                       Text="{Binding LeProduit.Nom}"
-                       FontAttributes="Bold" 
-                       TextColor="Red"/>
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="2"
+                                    Margin="0,-50"
+                                    FontAttributes="Bold"
+                                    Text="{Binding LeProduit.Nom}"
+                                    TextColor="Red" />
 
-                                <Label Grid.Row="1"
-                       Grid.Column="2"
-                       Text="{Binding LeProduit.PrixReel}"
-                       FontAttributes="Bold"
-                       TextColor="Black"/>
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="2"
+                                    Margin="-100,-50"
+                                    FontAttributes="Bold"
+                                    Text="{Binding LeProduit.PrixReel}"
+                                    TextColor="Black" />
 
-                                <Button 
-                        Grid.Row="2"
-                        Text="Rejoindre l'enchère" 
-                        Clicked="Enchere_Clicked"
-                        />
+                                <Image
+                                    Grid.Column="0"
+                                    HeightRequest="130"
+                                    Source="{Binding LeProduit.Photo}" />
+
+                                <Button
+                                    Grid.Row="1"
+                                    Clicked="Enchere_Clicked"
+                                    Text="Rejoindre l'enchère" />
                             </Grid>
-                            
+
                         </DataTemplate>
                     </CollectionView.ItemTemplate>
                 </CollectionView>

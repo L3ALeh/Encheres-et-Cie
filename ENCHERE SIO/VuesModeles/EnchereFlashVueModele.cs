@@ -19,11 +19,11 @@ namespace ENCHERE_SIO.VuesModeles
         #endregion
 
         #region Constructor
-        public EnchereFlashVueModele(/*Enchere currentEnchere*/)
-        {
-            AjoutListe();
-            GetEnchereTest("" + currentEnchere.Id);
-        }
+        //public EnchereFlashVueModele(/*Enchere currentEnchere*/)
+        //{
+        //    AjoutListe();
+        //    GetEnchereTest("" + currentEnchere.Id);
+        //}
         #endregion
 
         #region Getters/Setters

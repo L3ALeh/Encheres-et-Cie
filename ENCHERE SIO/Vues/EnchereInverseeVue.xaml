@@ -1,47 +1,60 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ENCHERE_SIO.Vues.EnchereInverseeVue"
->
-    
-        <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
-            <VerticalStackLayout BackgroundColor="White">
-                <ImageButton Source="https://cdn-icons-png.flaticon.com/512/93/93634.png" Clicked="ImageButton_Clicked"></ImageButton>
-                <Label 
-                TextColor="Black"
+<ContentPage
+    x:Class="ENCHERE_SIO.Vues.EnchereInverseeVue"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundImageSource="https://mir-s3-cdn-cf.behance.net/project_modules/disp/496ecb14589707.562865d064f9e.png"
+    NavigationPage.HasBackButton="True"
+    NavigationPage.HasNavigationBar="True">
+
+    <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
+        <VerticalStackLayout BackgroundColor="White">
+            <ImageButton Clicked="ImageButton_Clicked" Source="https://cdn-icons-png.flaticon.com/512/93/93634.png" />
+            <Label
+                HorizontalOptions="Center"
                 Text="Welcome to .NET MAUI!"
-                VerticalOptions="Center" 
-                HorizontalOptions="Center" />
-
-                <Label 
                 TextColor="Black"
+                VerticalOptions="Center" />
+
+            <Label
+                HorizontalOptions="Center"
                 Text="{Binding MaEnchere.LeProduit.Nom}"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"/>
-
-            <Image Source="{Binding MaEnchere.LeProduit.Photo}"/>
-            <Label 
                 TextColor="Black"
-                Text="{Binding MaEnchere.PrixActuel}"
-                VerticalOptions="Center"
-                HorizontalOptions="Center"
-                />
-            
-            <Button x:Name="validerMontant"
-                Text="Valider"
-                 VerticalOptions="Center"
-                HorizontalOptions="Center"
-                Clicked="validerMontant_Clicked"/>
-                
-            <StackLayout Orientation="Horizontal">
+                VerticalOptions="Center" />
 
-                
-               
-                
+            <Label
+                HorizontalOptions="Center"
+                Text="{Binding MaEnchere.Id}"
+                TextColor="Black"
+                VerticalOptions="Center" />
+            <Label
+                HorizontalOptions="Center"
+                Text="{Binding Participation.PrixEnchere}"
+                TextColor="Black"
+                VerticalOptions="Center" />
+
+            <StackLayout Orientation="Horizontal">
+                <Entry
+                    x:Name="montantEnchere"
+                    BackgroundColor="LightGray"
+                    Placeholder="€"
+                    TextColor="Black" />
+
+                <Label
+                    x:Name="montantNul"
+                    IsVisible="False"
+                    Text="Veuillez séléctionner un montant"
+                    TextColor="Red" />
+                <Button
+                    x:Name="validerMontant"
+                    Clicked="validerMontant_Clicked"
+                    HorizontalOptions="Center"
+                    Text="Valider"
+                    VerticalOptions="Center" />
             </StackLayout>
 
         </VerticalStackLayout>
-        </ScrollView>
+    </ScrollView>
 
- 
+
 </ContentPage>

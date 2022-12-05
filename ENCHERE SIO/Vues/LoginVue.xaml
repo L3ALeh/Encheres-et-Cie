@@ -3,8 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ENCHERE_SIO.Vues.LoginVue"
              NavigationPage.HasNavigationBar="false"
-             BackgroundImageSource="https://images.liveauctioneers.com/previews/prod/306/35257.jpg"
-
+             BackgroundImageSource="https://mir-s3-cdn-cf.behance.net/project_modules/disp/496ecb14589707.562865d064f9e.png"
              >
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -17,22 +16,23 @@
             </Style>
         </ResourceDictionary>
     </ContentPage.Resources>
-   
-    <ContentPage.Content>
-        <StackLayout Orientation="Vertical" Padding="30" Spacing="60"
+
+	<ContentPage.Content>
+		<ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
+			<StackLayout Orientation="Vertical" Padding="30" Spacing="60"
              >
 
-            <!--Titre-->
-            <Label 
-            Text ="Enchère SIO"
+				<!--Titre-->
+				<Label
+            Text ="Enchère et Cie"
             TextColor ="White"
             Style ="{StaticResource TitleTextStyle}"
             FontSize="25"
             />
-            <!--Titre-->
-            
-            <!--Image-->
-            <Border
+				<!--Titre-->
+
+				<!--Image-->
+				<Border
                         WidthRequest="190"
                         HeightRequest="190"
                         Stroke="white"
@@ -41,18 +41,18 @@
                         StrokeShape="RoundRectangle 90"
                         >
 
-                <Image Source="https://static.yoopies.com/bundles/yoopiescore/img/profile-v4/user_d_photo.png" 
+					<Image Source="https://static.yoopies.com/bundles/yoopiescore/img/profile-v4/user_d_photo.png"
                        WidthRequest="200"/>
-            </Border>
-            <!--Image-->
-            
-            <!--rectangle login-->
-            <Frame BackgroundColor="#6296A3" HasShadow="False" HorizontalOptions="CenterAndExpand" WidthRequest="360">
+				</Border>
+				<!--Image-->
 
-                <StackLayout Orientation="Vertical" Spacing="10">
-                    <Entry x:Name="Email" 
-                           Text="" 
-                           Placeholder="Email"  
+				<!--rectangle login-->
+				<Frame BackgroundColor="#8C6EE0"  HasShadow="False" HorizontalOptions="CenterAndExpand" WidthRequest="360">
+
+					<StackLayout Orientation="Vertical" Spacing="10">
+						<Entry x:Name="Email"
+                           Text=""
+                           Placeholder="Email"
                            FontAttributes="Italic"
                            TextColor="White"
                            PlaceholderColor="White"
@@ -61,8 +61,8 @@
                            Keyboard="Email"
                            ClearButtonVisibility="WhileEditing"/>
 
-                    <Entry x:Name="Password" Text="" 
-                           Placeholder="Mot de passe"  
+						<Entry x:Name="Password" Text=""
+                           Placeholder="Mot de passe"
                            FontAttributes="Italic"
                            TextColor="White"
                            PlaceholderColor="White"
@@ -72,39 +72,42 @@
                            IsTextPredictionEnabled="false"
                            IsPassword="true"
                            ClearButtonVisibility="WhileEditing"/>
-                    <Label x:Name="motDePasseIncorect"
+						<Label x:Name="motDePasseIncorect"
                            Text="Identifant ou mot de passe incorect"
                            TextColor="Red"
                            FontSize="Small"/>
 
-                </StackLayout>
-                <!--rectangle login -->            
-            </Frame>
-            
-            <!--BUTTON-->
-            <Button Command="{Binding SubmitCommand}" 
-                    Text="Se connecter" 
-                    TextColor="White" 
-                    FontAttributes="Bold"  
-                    FontSize="Large" 
+					</StackLayout>
+					<!--rectangle login -->
+				</Frame>
+
+				<!--BUTTON-->
+				<Button Command="{Binding SubmitCommand}"
+                    Text="Se connecter"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    FontSize="Large"
                     HorizontalOptions="CenterAndExpand"
                     WidthRequest="255"
                     CornerRadius="30"
-                    BackgroundColor="#A37952"
+                    BackgroundColor="#9543D3"
+                    BorderColor="#8936B2"
+                    BorderWidth="1"
                     Clicked="Button_Clicked"
                     />
-            
-            <Button 
+
+				<Button
                             Padding="10"
                             x:Name="SansConnexion"
                             Text="Connexion en tant que visiteur"
                             BackgroundColor="LightGray"
-                            TextColor="Brown"
+                            TextColor="#8936B2"
                             WidthRequest="225"
                             CornerRadius="30"
                             Clicked="Visiteur_Clicked"/>
 
-            <!--BUTTON-->
-        </StackLayout>
+				<!--BUTTON-->
+			</StackLayout>
+		</ScrollView>
     </ContentPage.Content>
 </ContentPage>  

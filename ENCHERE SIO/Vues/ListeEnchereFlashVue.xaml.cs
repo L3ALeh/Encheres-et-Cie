@@ -12,11 +12,11 @@ public partial class ListeEnchereFlashVue : ContentPage
 		BindingContext = _vueModele = new ListeEnchereFlashVueModele();
 	}
 
-	private void collView_SelectionChanged(object sender, SelectionChangedEventArgs e)
-	{
-		var current = (Enchere)e.CurrentSelection.FirstOrDefault();
-		Navigation.PushAsync(new EnchereFlashVue(current), true);
-	}
+	//private void collView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+	//{
+	//	var current = (Enchere)e.CurrentSelection.FirstOrDefault();
+	//	Navigation.PushAsync(new EnchereFlashVue(current), true);
+	//}
 
 	private void Button_Clicked(object sender, EventArgs e)
 	{

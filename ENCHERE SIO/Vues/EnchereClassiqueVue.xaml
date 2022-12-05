@@ -1,85 +1,115 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ENCHERE_SIO.Vues.EnchereClassiqueVue"
-             Title="EnchereClassiqueVue">
-    <ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
-        <VerticalStackLayout BackgroundColor="White">
-            <ImageButton Source="https://cdn-icons-png.flaticon.com/512/93/93634.png" Clicked="ImageButton_Clicked"></ImageButton>
-            <Label 
-            TextColor="Black"
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+<ContentPage
+    x:Class="ENCHERE_SIO.Vues.EnchereClassiqueVue"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundImageSource="https://mir-s3-cdn-cf.behance.net/project_modules/disp/496ecb14589707.562865d064f9e.png"
+    NavigationPage.HasBackButton="True"
+    NavigationPage.HasNavigationBar="True">
+	<ScrollView Orientation="Vertical" VerticalScrollBarVisibility="Never">
+		<VerticalStackLayout>
+			<ImageButton
+                Margin="-60,-45"
+                Clicked="ImageButton_Clicked"
+                CornerRadius="45"
+                HeightRequest="180"
+                HorizontalOptions="Start"
+                ScaleX="0.45"
+                ScaleY="0.45"
+                Source="https://cdn-icons-png.flaticon.com/512/93/93634.png"
+                WidthRequest="250" />
 
-            <Label 
-            TextColor="Black"
-            Text="{Binding MaEnchere.PrixActuel}"
-            VerticalOptions="Center"
-            HorizontalOptions="Center"/>
-
-            <Label 
-            TextColor="Black"
-            Text="{Binding MaEnchere.Id}"
-            VerticalOptions="Center"
-            HorizontalOptions="Center"/>
-        
-        <StackLayout Orientation="Horizontal">
-            <Entry x:Name="montantEnchere"
-               Placeholder="€"
-               TextColor="Black"
-               BackgroundColor="LightGray"/>
-
-            <Label x:Name="montantNul" Text="Veuillez séléctionner un montant" TextColor="Red" IsVisible="False"></Label>
-            <Button x:Name="validerMontant"
-                Text="Valider"
-                 VerticalOptions="Center"
+			<Image
                 HorizontalOptions="Center"
-                Clicked="validerMontant_Clicked"/>
-        </StackLayout>
+                Source="{Binding MaEnchere.LeProduit.Photo}"
+                VerticalOptions="Center" />
 
-        <StackLayout Orientation="Horizontal">
-            <Entry x:Name="AutoMontant"
-               Placeholder="votre plage d'enchere auto :"
-               TextColor="Black"
-               BackgroundColor="LightGray"/>
+			<Label
+                Padding="5"
+                HorizontalOptions="Start"
+                Text="Saisissez un montant :" />
 
-            <Button x:Name="validerAuto"
-                Text="Valider"
-                 VerticalOptions="Center"
+			<StackLayout
+                Padding="5"
+                HorizontalOptions="Start"
+                Orientation="Horizontal">
+				<Entry
+                    x:Name="montantEnchere"
+                    BackgroundColor="LightGray"
+                    Placeholder="€"
+                    TextColor="Black" />
+
+				<Label
+                    x:Name="montantNul"
+                    IsVisible="False"
+                    Text="Veuillez séléctionner un montant"
+                    TextColor="Red" />
+				<Button
+                    x:Name="validerMontant"
+                    Clicked="validerMontant_Clicked"
+                    HorizontalOptions="Center"
+                    Text="Valider"
+                    VerticalOptions="Center" />
+			</StackLayout>
+			<Label
+                Margin="10,-80"
+                HorizontalOptions="EndAndExpand"
+                Text="Valeur maximale d'incrémentation automatique :" />
+
+			<StackLayout
+                Margin="-50,25"
+                Padding="70"
+                HorizontalOptions="End"
+                Orientation="Horizontal">
+				<Entry
+                    x:Name="AutoMontant"
+                    BackgroundColor="LightGray"
+                    Placeholder="votre plage d'enchere auto :"
+                    TextColor="Black" />
+
+				<Button
+                    x:Name="validerAuto"
+                    Margin="1"
+                    Clicked="validerAuto_Clicked"
+                    HorizontalOptions="Center"
+                    Text="Valider"
+                    VerticalOptions="Center" />
+			</StackLayout>
+
+			<CollectionView
+                Margin="-30"
                 HorizontalOptions="Center"
-                Clicked="validerAuto_Clicked"/>
-        </StackLayout>
-       
-        <CollectionView ItemsSource="{Binding Mes6Participations}"  >
-            <CollectionView.ItemTemplate>
-                <DataTemplate>
-                    <Grid Padding="10">
-                        <Grid.RowDefinitions>
-                            <RowDefinition Height="Auto" />
-                            <RowDefinition Height="Auto" />
-                        </Grid.RowDefinitions>
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto" />
-                            <ColumnDefinition Width="Auto" />
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Row="1"
-                       Grid.Column="0"
-                       Text="{Binding Pseudo}"
-                       FontAttributes="Bold" 
-                       TextColor="Red"/>
+                ItemsSource="{Binding Mes6Participations}">
+				<CollectionView.ItemTemplate>
+					<DataTemplate>
+						<Grid Padding="0">
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="Auto" />
+								<ColumnDefinition Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<Label
+                                Grid.Row="1"
+                                Grid.Column="0"
+                                FontAttributes="Bold"
+                                Text="{Binding Pseudo}"
+                                TextColor="Red" />
 
-                            <Label Grid.Row="1"
-                       Grid.Column="1"
-                       Text="{Binding PrixEnchere}"
-                       FontAttributes="Bold"
-                       TextColor="Black"/>
+							<Label
+                                Grid.Row="1"
+                                Grid.Column="1"
+                                FontAttributes="Bold"
+                                Text="{Binding PrixEnchere}"
+                                TextColor="Black" />
 
 
-                        </Grid>
-                    </DataTemplate>
-                </CollectionView.ItemTemplate>
-            </CollectionView>
-        </VerticalStackLayout>
-    </ScrollView>
+						</Grid>
+					</DataTemplate>
+				</CollectionView.ItemTemplate>
+			</CollectionView>
+		</VerticalStackLayout>
+	</ScrollView>
 </ContentPage>

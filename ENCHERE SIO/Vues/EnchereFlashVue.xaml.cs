@@ -9,12 +9,12 @@ public partial class EnchereFlashVue : ContentPage
 {
     EnchereFlashVueModele vueModele;
 
-    public EnchereFlashVue(Enchere currentEnchere)
-    {
-        InitializeComponent();
-        BindingContext = vueModele = new EnchereFlashVueModele(currentEnchere);
+    //public EnchereFlashVue(Enchere currentEnchere)
+    //{
+    //    InitializeComponent();
+    //    BindingContext = vueModele = new EnchereFlashVueModele(currentEnchere);
 
-    }
+    //}
 
     private void ImageButton_Clicked(object sender, EventArgs e)
     {
